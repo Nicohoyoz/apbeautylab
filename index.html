@@ -161,7 +161,7 @@
   /* ── GALLERY ── */
   #gallery { background: var(--cream); }
   .gallery-intro { max-width: 520px; font-size: 0.87rem; color: var(--brown); line-height: 1.85; margin-bottom: 3.5rem; }
-  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 12px; }
   .gallery-cell { background: var(--linen); overflow: hidden; position: relative; }
   .gallery-cell.tall { grid-row: span 2; overflow: hidden; }
   .gallery-placeholder { width: 100%; height: 100%; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; padding: 2rem; }
@@ -171,10 +171,9 @@
 
   .hero-img-real { width: 100%; height: 100%; min-height: 600px; object-fit: cover; object-position: center top; display: block; }
   .about-img-real { width: 100%; height: 100%; min-height: 600px; object-fit: cover; object-position: center top; display: block; }
-  .gallery-img { width: 100%; height: 280px; object-fit: cover; object-position: center center; display: block; transition: transform 0.5s ease; }
-  .gallery-cell.tall .gallery-img { width: 100%; height: 100%; min-height: 568px; object-fit: contain; object-position: center top; background: var(--linen); display: block; }
-  .gallery-cell { border-radius: 0; }
-  .gallery-cell:hover .gallery-img { transform: scale(1.04); }
+  .gallery-img { width: 100%; height: 100%; min-height: 320px; object-fit: contain; background: var(--linen); display: block; transition: transform 0.4s ease; }
+  .gallery-cell.tall .gallery-img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+  .gallery-cell:hover .gallery-img { transform: scale(1.03); }
 
   .gallery-note { margin-top: 2rem; font-size: 0.78rem; color: var(--tan); font-style: italic; text-align: center; }
 
@@ -540,10 +539,7 @@
 <!-- ABOUT -->
 <div id="about">
   <div class="about-img">
-    <video autoplay muted loop playsinline class="about-img-real" style="object-fit:cover;width:100%;height:100%;min-height:600px;display:block;">
-      <source src="images/intro.mp4" type="video/mp4">
-      <img src="images/about.jpg" alt="Alexandra Parrales" class="about-img-real">
-    </video>
+    <img src="images/about.jpg" alt="Alexandra Parrales" class="about-img-real">
   </div>
   <div class="about-content fade-in">
     <span class="section-eyebrow">My story</span>
@@ -572,21 +568,9 @@
   <div class="gallery-grid fade-in">
     <div class="gallery-cell tall"><img src="images/lymph-ba-1.jpg" alt="Lymphatic drainage result" class="gallery-img"></div>
     <div class="gallery-cell"><img src="images/facial-1.jpg" alt="Facial treatment" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/brow-1.jpg" alt="Brow lamination" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/lash-1.jpg" alt="Lash lift" class="gallery-img"></div>
+    <div class="gallery-cell"><img src="images/brow-1.jpg" alt="Brow lamination result" class="gallery-img"></div>
+    <div class="gallery-cell"><img src="images/lash-1.jpg" alt="Lash lift result" class="gallery-img"></div>
     <div class="gallery-cell"><img src="images/lymph-ba-2.jpg" alt="Lymphatic drainage before and after" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/brow-2.jpg" alt="Brow lamination result" class="gallery-img"></div>
-    <div class="gallery-cell tall"><img src="images/facial-ba.jpg" alt="Facial before and after" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/lymph-ba-3.jpg" alt="Lymphatic drainage result" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/brow-lash.jpg" alt="Brow and lash result" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/lymph-ba-4.jpg" alt="Lymphatic drainage result" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/led.jpg" alt="LED light therapy" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/brow-ba.jpg" alt="Brow before and after" class="gallery-img"></div>
-    <div class="gallery-cell tall"><img src="images/lymph-ba-3.jpg" alt="Lymphatic result" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/lash-lift.png" alt="Lash lift result" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/brow-3.jpg" alt="Brow lamination" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/micro-after.jpg" alt="Microdermabrasion result" class="gallery-img"></div>
-    <div class="gallery-cell"><img src="images/brow-4.jpg" alt="Brow lamination result" class="gallery-img"></div>
   </div>
   <p class="gallery-note fade-in">Photos will be updated as Alexandra shares them.</p>
 </section>
