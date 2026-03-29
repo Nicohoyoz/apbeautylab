@@ -74,42 +74,58 @@ button:hover ~ .cursor-ring { border-color: var(--bark); transform: translate(-5
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex;
+  flex-direction: column;
+  background: rgba(249,246,241,0.96);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196,184,168,0.25);
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+}
+.nav-row1 {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.4rem 3rem;
-  background: rgba(249,246,241,0.88);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(196,184,168,0.2);
-  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), padding 0.4s;
+  padding: 1.2rem 3rem;
+  border-bottom: 1px solid rgba(196,184,168,0.15);
+  position: relative;
 }
 .nav-logo {
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   color: var(--ink);
   text-decoration: none;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
+  text-transform: uppercase;
 }
-.nav-links {
+.nav-row1-right {
+  margin-left: auto;
   display: flex;
-  gap: 2rem;
-  list-style: none;
   align-items: center;
+  gap: 1.5rem;
 }
-.nav-links a {
+.nav-row2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 0.7rem 3rem;
+  list-style: none;
+}
+.nav-row2 a {
   font-size: 0.62rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--taupe);
   text-decoration: none;
   transition: color 0.25s;
   position: relative;
+  white-space: nowrap;
 }
-.nav-links a::after {
+.nav-row2 a::after {
   content: '';
   position: absolute;
   bottom: -2px; left: 0; right: 0;
@@ -119,12 +135,9 @@ nav {
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
 }
-.nav-links a:hover { color: var(--ink); }
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-right {
-  display: flex;
-  align-items: center;
-}
+.nav-row2 a:hover { color: var(--ink); }
+.nav-row2 a:hover::after { transform: scaleX(1); }
+
 .nav-book {
   font-size: 0.6rem;
   letter-spacing: 0.24em;
@@ -134,15 +147,18 @@ nav {
   padding: 0.7rem 1.6rem;
   text-decoration: none;
   transition: background 0.3s;
+  white-space: nowrap;
 }
 .nav-book:hover { background: var(--bark); }
 
+.nav-links { display: none; }
+.nav-right { display: none; }
 /* ── HERO ── */
 #home {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-top: 5.5rem;
+  padding-top: 8rem;
   overflow: hidden;
 }
 .hero-left {
@@ -683,6 +699,7 @@ footer {
 
   .hamburger {
     display: none;
+    /* shown on mobile only */
     flex-direction: column;
     gap: 5px;
     background: none;
@@ -773,7 +790,19 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <ul class="nav-links">
+  <!-- Row 1: logo centered, book button right -->
+  <div class="nav-row1">
+    <div style="width:120px;"></div>
+    <a href="#home" class="nav-logo">AP Beauty Lab</a>
+    <div class="nav-row1-right">
+      <a href="#booking" class="nav-book">Book a Session</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <!-- Row 2: nav links centered -->
+  <ul class="nav-row2">
     <li><a href="#home">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#booking">Book</a></li>
@@ -781,13 +810,6 @@ footer {
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#home" class="nav-logo">AP Beauty Lab</a>
-  <div class="nav-right">
-    <a href="#booking" class="nav-book">Book a Session</a>
-  </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <!-- MOBILE MENU -->
