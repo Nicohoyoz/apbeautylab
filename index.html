@@ -42,6 +42,10 @@ body {
 }
 
 /* ── CUSTOM CURSOR ── */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+  body { cursor: auto; }
+}
 .cursor-dot {
   width: 6px; height: 6px;
   background: var(--ink);
@@ -1384,6 +1388,7 @@ function closeMobileMenu() {
 }
 
 // ── CURSOR ────────────────────────────────────────────────────
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 const dot  = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1399,6 +1404,7 @@ document.querySelectorAll('a, button, .gallery-item').forEach(el => {
   el.addEventListener('mouseenter', () => { dot.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.borderColor='rgba(107,93,82,0.5)'; });
   el.addEventListener('mouseleave', () => { dot.style.transform='translate(-50%,-50%)'; ring.style.transform='translate(-50%,-50%)'; ring.style.borderColor='rgba(26,20,16,0.35)'; });
 });
+}
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────
 // Reveal all elements — check if already in viewport on load
