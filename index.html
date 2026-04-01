@@ -664,29 +664,71 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
-  nav { padding: 1.2rem 2rem; grid-template-columns: 1fr auto; }
-  .nav-links { display: none; }
-  .nav-right { grid-column: 2; }
-  #home { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 5rem 2.5rem 3rem; }
-  .hero-right { min-height: 55vw; }
-  section { padding: 5rem 2.5rem; }
-  .services-head { grid-template-columns: 1fr; gap: 1.5rem; }
-  .services-grid { grid-template-columns: 1fr; }
-  .booking-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  /* NAV */
+  nav { padding: 1rem 1.5rem; flex-direction: column; }
+  .nav-row1 { padding: 1rem 1.5rem; width: 100%; }
+  .nav-row2 { display: none; }
+  .nav-logo { font-size: 1rem; }
+  .nav-book { display: none; }
+  .hamburger { display: flex; }
+
+  /* HERO */
+  #home { grid-template-columns: 1fr; min-height: auto; padding-top: 7rem; }
+  .hero-left { padding: 3rem 1.5rem 2rem; }
+  .hero-title { font-size: 2.8rem; }
+  .hero-sub { font-size: 0.82rem; max-width: 100%; }
+  .hero-right { min-height: 60vw; }
+
+  /* SECTIONS */
+  section { padding: 4rem 1.5rem; }
+  .services-head { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+  .services-grid { grid-template-columns: 1fr; gap: 0; }
+  .services-tabs { gap: 0; flex-wrap: wrap; }
+  .tab-btn { padding: 0.7rem 1.2rem 0.7rem 0; font-size: 0.58rem; }
+
+  /* BOOKING */
+  .booking-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .booking-form-card { padding: 2rem 1.5rem; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .time-grid { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .time-btn { font-size: 0.6rem; padding: 0.4rem 0.1rem; }
+
+  /* ABOUT */
   #about { grid-template-columns: 1fr; }
-  .about-content { padding: 4rem 2.5rem; }
-  .gallery-masonry { columns: 2; }
-  .nl-strip { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2.5rem; }
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  footer { grid-template-columns: 1fr; gap: 1rem; text-align: center; padding: 2.5rem; }
-  .footer-links { justify-content: center; }
-  .footer-legal { padding: 1rem 2rem 1.5rem; }
-  .form-row { grid-template-columns: 1fr; }
-  .time-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-media { min-height: 65vw; }
+  .about-content { padding: 3rem 1.5rem; }
+  .about-stats { gap: 1.5rem; }
+  .stat-num { font-size: 2rem; }
+
+  /* GALLERY */
+  #gallery { padding: 4rem 1.5rem 2rem; }
+  .gallery-masonry { columns: 2; column-gap: 8px; }
+  .gallery-item { margin-bottom: 8px; }
+
+  /* NEWSLETTER */
+  .nl-strip { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 1.5rem; }
+  .nl-left h2 { font-size: 2rem; }
+
+  /* CONTACT */
+  #contact { padding: 4rem 1.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* FOOTER */
+  footer { grid-template-columns: 1fr; gap: 0.8rem; text-align: center; padding: 2rem 1.5rem; }
+  .footer-links { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-legal { padding: 1rem 1.5rem 1.5rem; gap: 1rem; }
 }
+
 @media (max-width: 600px) {
+  .hero-title { font-size: 2.2rem; }
   .gallery-masonry { columns: 1; }
+  .time-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-stats { flex-direction: column; gap: 1.2rem; }
+  .services-tabs { overflow-x: auto; padding-bottom: 0.5rem; }
+  .tab-btn { white-space: nowrap; }
+  .section-title { font-size: 2rem; }
+  .booking-form-card { padding: 1.5rem 1rem; }
+  footer { padding: 1.5rem 1rem; }
 }
 
   nav {
