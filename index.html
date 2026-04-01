@@ -422,6 +422,8 @@ section { padding: 8rem 6rem; }
 }
 .time-btn:hover { border-color: var(--ink); color: var(--ink); }
 .time-btn.selected { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .time-btn-break { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+  .time-btn-break:hover { border-color: var(--warm); color: var(--taupe); }
 .form-status { font-size: 0.75rem; color: var(--taupe); margin-top: 0.8rem; min-height: 1.2rem; text-align: center; }
 .form-status.success { color: var(--bark); }
 .form-status.error { color: #8B3A3A; }
@@ -992,8 +994,9 @@ footer {
       <h2 class="section-title">Book an<br>Appointment</h2>
       <p>Choose your service, pick a date and time, and submit. Alexandra will confirm within 24 hours.</p>
       <ul class="booking-details">
-        <li>Wednesday &amp; Friday — 160 Lanza Ave, Garfield</li>
-        <li>Other days by request — address after confirmation</li>
+        <li>Wednesday &amp; Friday in Garfield, NJ — address provided after confirmation</li>
+        <li>Other days by request — address provided after confirmation</li>
+        <li>No Sunday appointments</li>
         <li>Bilingual — English &amp; Spanish</li>
         <li>Arrive 5 minutes early</li>
         <li>24-hour cancellation notice required</li>
@@ -1059,7 +1062,7 @@ footer {
             <button type="button" class="time-btn" data-time="10:00 AM">10:00 AM</button>
             <button type="button" class="time-btn" data-time="11:00 AM">11:00 AM</button>
             <button type="button" class="time-btn" data-time="12:00 PM">12:00 PM</button>
-            <button type="button" class="time-btn" data-time="1:00 PM">1:00 PM</button>
+            <button type="button" class="time-btn time-btn-break" data-time="" disabled title="Lunch break — unavailable">1:00 PM</button>
             <button type="button" class="time-btn" data-time="2:00 PM">2:00 PM</button>
             <button type="button" class="time-btn" data-time="3:00 PM">3:00 PM</button>
             <button type="button" class="time-btn" data-time="4:00 PM">4:00 PM</button>
@@ -1153,9 +1156,9 @@ footer {
     <div class="reveal-left">
       <div class="location-block" style="margin-bottom:2.5rem;">
         <h3>Garfield MedSpa</h3>
-        <span class="location-days">Wednesdays &amp; Fridays</span>
-        <p class="location-addr">160 Lanza Ave<br>Garfield, NJ</p>
-        <p class="location-note">Other days — book online first and I'll share my address after confirming.</p>
+        <span class="location-days">Mon – Sat · Closed Sundays</span>
+        <p class="location-addr">Garfield, NJ</p>
+        <p class="location-note">Exact address shared privately after booking confirmation.</p>
       </div>
     </div>
     <div class="contact-form reveal-right">
@@ -1336,6 +1339,8 @@ footer {
 <script>
 // ── CONFIG ────────────────────────────────────────────────────
 const EMAILJS_PUBLIC_KEY  = 'EMAILJS_PUBLIC_KEY';
+// IMPORTANT: After plugging in your real key, go to emailjs.com → Account → API Keys
+// → Add "nicohoyoz.github.io" under Allowed Origins to prevent unauthorized use
 const EMAILJS_SERVICE_ID  = 'EMAILJS_SERVICE_ID';
 const EMAILJS_BOOKING_TID = 'EMAILJS_BOOKING_TID';
 const EMAILJS_CONTACT_TID = 'EMAILJS_CONTACT_TID';
@@ -1501,6 +1506,21 @@ document.querySelectorAll('.time-btn').forEach(btn => {
   });
 });
 document.getElementById('b_date').min = new Date().toISOString().split('T')[0];
+// Block Sundays on date picker
+document.getElementById('b_date').addEventListener('input', function() {
+  const selected = new Date(this.value + 'T00:00:00');
+  if (selected.getDay() === 0) {
+    this.value = '';
+    const status = document.getElementById('bookingStatus');
+    status.textContent = 'Sundays are unavailable — please select another day.';
+    status.className = 'form-status error';
+    setTimeout(() => { status.textContent = ''; status.className = 'form-status'; }, 3000);
+  }
+});
+// Disable 1-2pm break slot from clicking
+document.querySelectorAll('.time-btn-break').forEach(btn => {
+  btn.addEventListener('click', e => e.preventDefault());
+});
 
 // ── SANITIZE ──────────────────────────────────────────────────
 function sanitize(str) {
@@ -1509,15 +1529,32 @@ function sanitize(str) {
 function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
 function isValidPhone(p) { return /^[\d\s\(\)\+\-]{7,20}$/.test(p); }
 
+
+// ── RATE LIMITING ─────────────────────────────────────────────
+const COOLDOWN_MS = 60000;
+const lastSubmit = {};
+function isRateLimited(formId) {
+  const now = Date.now();
+  if (lastSubmit[formId] && (now - lastSubmit[formId]) < COOLDOWN_MS) {
+    const remaining = Math.ceil((COOLDOWN_MS - (now - lastSubmit[formId])) / 1000);
+    return remaining;
+  }
+  return false;
+}
+function setRateLimited(formId) { lastSubmit[formId] = Date.now(); }
+
 // ── BOOKING FORM ──────────────────────────────────────────────
 document.getElementById('bookingForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const status = document.getElementById('bookingStatus');
   const btn = this.querySelector('[type=submit]');
+  const rl = isRateLimited('booking');
+  if (rl) { status.textContent = 'Please wait ' + rl + ' seconds before submitting again.'; status.className = 'form-status error'; return; }
   const time = document.getElementById('b_time').value;
   if (!time) { status.textContent = 'Please select a time slot.'; status.className = 'form-status error'; return; }
   if (!isValidEmail(document.getElementById('b_email').value)) { status.textContent = 'Please enter a valid email.'; status.className = 'form-status error'; return; }
   if (!isValidPhone(document.getElementById('b_phone').value)) { status.textContent = 'Please enter a valid phone number.'; status.className = 'form-status error'; return; }
+  setRateLimited('booking');
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_BOOKING_TID, {
@@ -1544,6 +1581,9 @@ document.getElementById('contactForm').addEventListener('submit', async function
   e.preventDefault();
   const status = document.getElementById('contactStatus');
   const btn = this.querySelector('[type=submit]');
+  const rlc = isRateLimited('contact');
+  if (rlc) { status.textContent = 'Please wait ' + rlc + ' seconds before submitting again.'; status.className = 'form-status error'; return; }
+  setRateLimited('contact');
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TID, {
