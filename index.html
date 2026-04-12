@@ -1344,36 +1344,23 @@ footer {
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" crossorigin="anonymous"></script>
+
 <script>
-// ── CONFIG ────────────────────────────────────────────────────
-const EMAILJS_PUBLIC_KEY  = 'EMAILJS_PUBLIC_KEY';
-// IMPORTANT: After plugging in your real key, go to emailjs.com → Account → API Keys
-// → Add "nicohoyoz.github.io" under Allowed Origins to prevent unauthorized use
-const EMAILJS_SERVICE_ID  = 'EMAILJS_SERVICE_ID';
-const EMAILJS_BOOKING_TID = 'EMAILJS_BOOKING_TID';
-const EMAILJS_CONTACT_TID = 'EMAILJS_CONTACT_TID';
-emailjs.init(EMAILJS_PUBLIC_KEY);
-
-
+// ── WEB3FORMS CONFIG ─────────────────────────────────────────
+const W3F_ACCESS_KEY = 'a6bd2aa9-0a5c-494f-a843-88dbae99feae';
 
 // ── VIDEO SWAP ─────────────────────────────────────────────────
 const aboutMedia = document.getElementById('aboutMedia');
 if (aboutMedia) {
   const vid = document.createElement('video');
-  vid.autoplay = true;
-  vid.muted = true;
-  vid.loop = true;
-  vid.playsInline = true;
+  vid.autoplay = true; vid.muted = true; vid.loop = true; vid.playsInline = true;
   vid.style.cssText = 'object-fit:cover;width:100%;height:100%;min-height:600px;display:block;';
   const src = document.createElement('source');
-  src.src = 'images/intro.mp4';
-  src.type = 'video/mp4';
+  src.src = 'images/intro.mp4'; src.type = 'video/mp4';
   vid.appendChild(src);
   vid.addEventListener('canplay', () => {
     document.getElementById('aboutImg').style.display = 'none';
-    aboutMedia.appendChild(vid);
-    vid.play();
+    aboutMedia.appendChild(vid); vid.play();
   });
   vid.load();
 }
@@ -1381,92 +1368,61 @@ if (aboutMedia) {
 // ── HAMBURGER MENU ────────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
-
 hamburger.addEventListener('click', () => {
   const isOpen = mobileMenu.classList.contains('open');
-  if (isOpen) {
-    closeMobileMenu();
-  } else {
+  if (isOpen) { closeMobileMenu(); } else {
     mobileMenu.style.display = 'flex';
     requestAnimationFrame(() => mobileMenu.classList.add('open'));
     hamburger.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 });
-
 function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
-  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open'); hamburger.classList.remove('open');
   document.body.style.overflow = '';
   setTimeout(() => { mobileMenu.style.display = 'none'; }, 350);
 }
 
 // ── CURSOR ────────────────────────────────────────────────────
 if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-const dot  = document.getElementById('cursorDot');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx+'px'; dot.style.top = my+'px';
-  dot.style.opacity = '1'; ring.style.opacity = '1';
-}, { once: false });
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx+'px'; dot.style.top = my+'px'; });
-function animRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); }
-animRing();
-document.querySelectorAll('a, button, .gallery-item').forEach(el => {
-  el.addEventListener('mouseenter', () => { dot.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.borderColor='rgba(107,93,82,0.5)'; });
-  el.addEventListener('mouseleave', () => { dot.style.transform='translate(-50%,-50%)'; ring.style.transform='translate(-50%,-50%)'; ring.style.borderColor='rgba(26,20,16,0.35)'; });
-});
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx+'px'; dot.style.top = my+'px';
+    dot.style.opacity = '1'; ring.style.opacity = '1';
+  });
+  function animRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); }
+  animRing();
+  document.querySelectorAll('a, button, .gallery-item').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.borderColor='rgba(107,93,82,0.5)'; });
+    el.addEventListener('mouseleave', () => { dot.style.transform='translate(-50%,-50%)'; ring.style.transform='translate(-50%,-50%)'; ring.style.borderColor='rgba(26,20,16,0.35)'; });
+  });
 }
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────
-// Reveal all elements — check if already in viewport on load
 const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger');
-
-function checkVisible(el) {
-  const rect = el.getBoundingClientRect();
-  return rect.top < window.innerHeight && rect.bottom > 0;
-}
-
+function checkVisible(el) { const r = el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; }
 const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObs.unobserve(entry.target);
-    }
-  });
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObs.unobserve(entry.target); } });
 }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-
-// Small delay on page load so CSS is ready, then check all elements
 window.addEventListener('load', () => {
   setTimeout(() => {
-    revealEls.forEach(el => {
-      if (checkVisible(el)) {
-        el.classList.add('visible');
-      } else {
-        revealObs.observe(el);
-      }
-    });
+    revealEls.forEach(el => { if (checkVisible(el)) { el.classList.add('visible'); } else { revealObs.observe(el); } });
   }, 100);
 });
-
-// Gallery items stagger
 const galleryItems = document.querySelectorAll('.gallery-item');
 const galleryObs = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }, (Array.from(galleryItems).indexOf(entry.target) % 3) * 80);
+      setTimeout(() => { entry.target.style.opacity='1'; entry.target.style.transform='translateY(0)'; }, (Array.from(galleryItems).indexOf(entry.target) % 3) * 80);
       galleryObs.unobserve(entry.target);
     }
   });
 }, { threshold: 0.05 });
 galleryItems.forEach(item => {
-  item.style.opacity = '0';
-  item.style.transform = 'translateY(24px)';
+  item.style.opacity = '0'; item.style.transform = 'translateY(24px)';
   item.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
   galleryObs.observe(item);
 });
@@ -1484,26 +1440,20 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#'+current ? 'var(--ink)' : ''; });
 });
 
-
-// ── NAV HIDE ON SCROLL DOWN, SHOW ON SCROLL UP ────────────────
+// ── NAV HIDE ON SCROLL ────────────────────────────────────────
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector('nav');
 window.addEventListener('scroll', () => {
-  const currentScrollY = window.scrollY;
-  if (currentScrollY > lastScrollY && currentScrollY > 80) {
-    navbar.classList.add('hidden');
-  } else {
-    navbar.classList.remove('hidden');
-  }
-  lastScrollY = currentScrollY;
+  const cur = window.scrollY;
+  if (cur > lastScrollY && cur > 80) { navbar.classList.add('hidden'); } else { navbar.classList.remove('hidden'); }
+  lastScrollY = cur;
 }, { passive: true });
 
 // ── SERVICE TABS ──────────────────────────────────────────────
 function showTab(id, btn) {
   document.querySelectorAll('.services-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active'); btn.classList.add('active');
 }
 
 // ── TIME SLOTS ────────────────────────────────────────────────
@@ -1515,7 +1465,6 @@ document.querySelectorAll('.time-btn').forEach(btn => {
   });
 });
 document.getElementById('b_date').min = new Date().toISOString().split('T')[0];
-// Block Sundays on date picker
 document.getElementById('b_date').addEventListener('input', function() {
   const selected = new Date(this.value + 'T00:00:00');
   if (selected.getDay() === 0) {
@@ -1526,10 +1475,7 @@ document.getElementById('b_date').addEventListener('input', function() {
     setTimeout(() => { status.textContent = ''; status.className = 'form-status'; }, 3000);
   }
 });
-// Disable 1-2pm break slot from clicking
-document.querySelectorAll('.time-btn-break').forEach(btn => {
-  btn.addEventListener('click', e => e.preventDefault());
-});
+document.querySelectorAll('.time-btn-break').forEach(btn => { btn.addEventListener('click', e => e.preventDefault()); });
 
 // ── SANITIZE ──────────────────────────────────────────────────
 function sanitize(str) {
@@ -1538,15 +1484,13 @@ function sanitize(str) {
 function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
 function isValidPhone(p) { return /^[\d\s\(\)\+\-]{7,20}$/.test(p); }
 
-
 // ── RATE LIMITING ─────────────────────────────────────────────
 const COOLDOWN_MS = 60000;
 const lastSubmit = {};
 function isRateLimited(formId) {
   const now = Date.now();
   if (lastSubmit[formId] && (now - lastSubmit[formId]) < COOLDOWN_MS) {
-    const remaining = Math.ceil((COOLDOWN_MS - (now - lastSubmit[formId])) / 1000);
-    return remaining;
+    return Math.ceil((COOLDOWN_MS - (now - lastSubmit[formId])) / 1000);
   }
   return false;
 }
@@ -1566,19 +1510,30 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   setRateLimited('booking');
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_BOOKING_TID, {
-      client_name:  sanitize(document.getElementById('b_first').value)+' '+sanitize(document.getElementById('b_last').value),
-      client_email: sanitize(document.getElementById('b_email').value),
-      client_phone: sanitize(document.getElementById('b_phone').value),
-      service:      sanitize(document.getElementById('b_service').value),
-      date:         sanitize(document.getElementById('b_date').value),
-      time, language: sanitize(document.getElementById('b_lang').value),
-      notes:        sanitize(document.getElementById('b_notes').value) || 'None',
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: W3F_ACCESS_KEY,
+        subject: 'New Booking Request — ' + sanitize(document.getElementById('b_service').value),
+        from_name: sanitize(document.getElementById('b_first').value) + ' ' + sanitize(document.getElementById('b_last').value),
+        email: sanitize(document.getElementById('b_email').value),
+        phone: sanitize(document.getElementById('b_phone').value),
+        service: sanitize(document.getElementById('b_service').value),
+        date: sanitize(document.getElementById('b_date').value),
+        time: time,
+        language: sanitize(document.getElementById('b_lang').value),
+        notes: sanitize(document.getElementById('b_notes').value) || 'None',
+        botcheck: '',
+      })
     });
-    status.textContent = 'Request sent — Alexandra will confirm within 24 hours.';
-    status.className = 'form-status success';
-    this.reset();
-    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+    const data = await res.json();
+    if (data.success) {
+      status.textContent = 'Request sent — Alexandra will confirm within 24 hours.';
+      status.className = 'form-status success';
+      this.reset();
+      document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+    } else { throw new Error(data.message); }
   } catch(err) {
     status.textContent = 'Something went wrong. Please try again.';
     status.className = 'form-status error';
@@ -1595,15 +1550,24 @@ document.getElementById('contactForm').addEventListener('submit', async function
   setRateLimited('contact');
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TID, {
-      from_name:  sanitize(document.getElementById('c_name').value),
-      from_email: sanitize(document.getElementById('c_email').value),
-      subject:    sanitize(document.getElementById('c_subject').value),
-      message:    sanitize(document.getElementById('c_message').value),
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: W3F_ACCESS_KEY,
+        subject: 'New Message — ' + sanitize(document.getElementById('c_subject').value),
+        from_name: sanitize(document.getElementById('c_name').value),
+        email: sanitize(document.getElementById('c_email').value),
+        message: sanitize(document.getElementById('c_message').value),
+        botcheck: '',
+      })
     });
-    status.textContent = 'Message sent — thank you!';
-    status.className = 'form-status success';
-    this.reset();
+    const data = await res.json();
+    if (data.success) {
+      status.textContent = 'Message sent — thank you!';
+      status.className = 'form-status success';
+      this.reset();
+    } else { throw new Error(data.message); }
   } catch(err) {
     status.textContent = 'Something went wrong. Please try again.';
     status.className = 'form-status error';
