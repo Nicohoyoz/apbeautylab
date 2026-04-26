@@ -869,19 +869,29 @@ document.getElementById('nlForm').addEventListener('submit', async function(e) {
   if (!isValidEmail(email)) { status.textContent = 'Please enter a valid email.'; return; }
   btn.textContent = 'Subscribing…'; btn.disabled = true;
   try {
-    const formData = new FormData();
-    formData.append('EMAIL', email);
-    formData.append('FNAME', fname);
-    formData.append('email_address_check', '');
-    formData.append('locale', 'en');
-    await fetch('https://795b47b4.sibforms.com/serve/MUIFAGfH2xgUmJ9XbWgyEGJLhkpA-NS_ncoxjem4cpdvTqJ0iwrbwArbb6u-vNMsIAV3PSSAP-_ug6-b-eIZUyVeUqX6IA_bPCNGJ7SCDJQk_mAk-UXKP1zPvZ_edMlnOsqCbsxcHbeFprFTy3Q_HCZUv2Iy53CcBoRazeiLuacAF_v5V-UrUE5JakTG8UtJOTRARufCvLKrfQl2GQ==', {
-      method: 'POST', mode: 'no-cors', body: formData
+    const res = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': 'BREVO_API_KEY_HERE'
+      },
+      body: JSON.stringify({
+        email: email,
+        attributes: { FIRSTNAME: fname },
+        listIds: [2],
+        updateEnabled: true
+      })
     });
-    status.textContent = 'You’re subscribed — check your email to confirm!';
-    this.reset();
+    if (res.ok || res.status === 204) {
+      status.textContent = 'You\u2019re subscribed \u2014 thank you!';
+      this.reset();
+    } else {
+      const err = await res.json();
+      throw new Error(err.message || 'Failed');
+    }
   } catch(err) {
     status.textContent = 'Something went wrong. Please try again.';
-  } finally { btn.textContent = 'Subscribe →'; btn.disabled = false; }
+  } finally { btn.textContent = 'Subscribe \u2192'; btn.disabled = false; }
 });
 function openModal(id) { const el = document.getElementById('modal-'+id); if(el){ el.classList.add('open'); document.body.style.overflow='hidden'; el.scrollTop=0; } }
 function closeModal(id) { const el = document.getElementById('modal-'+id); if(el){ el.classList.remove('open'); document.body.style.overflow=''; } }
