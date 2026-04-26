@@ -548,7 +548,7 @@ footer { background: var(--ink); padding: 3rem 6rem; display: grid; grid-templat
     <p>Special offers, skincare tips, and new service announcements &mdash; delivered to your inbox. No spam, ever.</p>
   </div>
   <div>
-    <form class="nl-form" id="nlForm" method="POST" action="https://795b47b4.sibforms.com/serve/MUIFAGfH2xgUmJ9XbWgyEGJLhkpA-NS_ncoxjem4cpdvTqJ0iwrbwArbb6u-vNMsIAV3PSSAP-_ug6-b-eIZUyVeUqX6IA_bPCNGJ7SCDJQk_mAk-UXKP1zPvZ_edMlnOsqCbsxcHbeFprFTy3Q_HCZUv2Iy53CcBoRazeiLuacAF_v5V-UrUE5JakTG8UtJOTRARufCvLKrfQl2GQ==" target="_blank" novalidate>
+    <form class="nl-form" id="nlForm" novalidate>
       <div class="nl-row">
         <input class="nl-input" type="text" name="FNAME" id="nl_name" placeholder="First name" maxlength="60">
         <input class="nl-input" type="email" name="EMAIL" id="nl_email" placeholder="Email address" maxlength="100" required>
@@ -557,6 +557,7 @@ footer { background: var(--ink); padding: 3rem 6rem; display: grid; grid-templat
       <input type="text" name="email_address_check" value="" style="position:absolute;left:-5000px;" tabindex="-1" aria-hidden="true">
       <input type="hidden" name="locale" value="en">
       <p class="nl-note">By subscribing you agree to receive occasional emails from AP Beauty Lab.</p>
+      <p class="form-status" id="nlStatus" style="color:rgba(249,246,241,0.7);margin-top:0.5rem;min-height:1rem;font-size:0.75rem;"></p>
     </form>
   </div>
 </div>
@@ -840,6 +841,31 @@ document.getElementById('contactForm').addEventListener('submit', async function
     if (data.success) { status.textContent = 'Message sent — thank you!'; status.className = 'form-status success'; this.reset(); } else { throw new Error(data.message); }
   } catch(err) { status.textContent = 'Something went wrong. Please try again.'; status.className = 'form-status error'; }
   finally { btn.textContent = 'Send Message'; btn.disabled = false; }
+});
+
+// ── NEWSLETTER FORM ──────────────────────────────────────────
+document.getElementById('nlForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const status = document.getElementById('nlStatus');
+  const btn = this.querySelector('[type=submit]');
+  const email = document.getElementById('nl_email').value.trim();
+  const fname = document.getElementById('nl_name').value.trim();
+  if (!isValidEmail(email)) { status.textContent = 'Please enter a valid email.'; return; }
+  btn.textContent = 'Subscribing…'; btn.disabled = true;
+  try {
+    const formData = new FormData();
+    formData.append('EMAIL', email);
+    formData.append('FNAME', fname);
+    formData.append('email_address_check', '');
+    formData.append('locale', 'en');
+    await fetch('https://795b47b4.sibforms.com/serve/MUIFAGfH2xgUmJ9XbWgyEGJLhkpA-NS_ncoxjem4cpdvTqJ0iwrbwArbb6u-vNMsIAV3PSSAP-_ug6-b-eIZUyVeUqX6IA_bPCNGJ7SCDJQk_mAk-UXKP1zPvZ_edMlnOsqCbsxcHbeFprFTy3Q_HCZUv2Iy53CcBoRazeiLuacAF_v5V-UrUE5JakTG8UtJOTRARufCvLKrfQl2GQ==', {
+      method: 'POST', mode: 'no-cors', body: formData
+    });
+    status.textContent = 'You’re subscribed — check your email to confirm!';
+    this.reset();
+  } catch(err) {
+    status.textContent = 'Something went wrong. Please try again.';
+  } finally { btn.textContent = 'Subscribe →'; btn.disabled = false; }
 });
 function openModal(id) { const el = document.getElementById('modal-'+id); if(el){ el.classList.add('open'); document.body.style.overflow='hidden'; el.scrollTop=0; } }
 function closeModal(id) { const el = document.getElementById('modal-'+id); if(el){ el.classList.remove('open'); document.body.style.overflow=''; } }
