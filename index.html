@@ -859,7 +859,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
   finally { btn.textContent = 'Send Message'; btn.disabled = false; }
 });
 
-// ── NEWSLETTER FORM ──────────────────────────────────────────
+// ── NEWSLETTER FORM — via Cloudflare Worker ──────────────────
 document.getElementById('nlForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const status = document.getElementById('nlStatus');
@@ -869,25 +869,17 @@ document.getElementById('nlForm').addEventListener('submit', async function(e) {
   if (!isValidEmail(email)) { status.textContent = 'Please enter a valid email.'; return; }
   btn.textContent = 'Subscribing…'; btn.disabled = true;
   try {
-    const res = await fetch('https://api.brevo.com/v3/contacts', {
+    const res = await fetch('https://apbeautylab-newsletter.nicolashoyos777.workers.dev', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': 'BREVO_API_KEY_HERE'
-      },
-      body: JSON.stringify({
-        email: email,
-        attributes: { FIRSTNAME: fname },
-        listIds: [2],
-        updateEnabled: true
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, fname: fname })
     });
-    if (res.ok || res.status === 204) {
+    const data = await res.json();
+    if (data.success) {
       status.textContent = 'You\u2019re subscribed \u2014 thank you!';
       this.reset();
     } else {
-      const err = await res.json();
-      throw new Error(err.message || 'Failed');
+      throw new Error(data.error || 'Failed');
     }
   } catch(err) {
     status.textContent = 'Something went wrong. Please try again.';
