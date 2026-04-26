@@ -7,7 +7,7 @@
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-<meta property="og:title" content="AP Beauty Lab — Alexandra Parrales">
+<meta property="og:title" content="The AP Beauty Lab — Garfield, NJ">
 <meta property="og:description" content="Licensed esthetician in Garfield, NJ. Facials, Lymphatic Drainage, Lash &amp; Brow, Waxing. Book your session today.">
 <meta property="og:image" content="https://theapbeautylab.com/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://theapbeautylab.com/images/og-image.jpg">
-<title>AP Beauty Lab — Alexandra Parrales</title>
+<title>The AP Beauty Lab — Garfield, NJ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Didact+Gothic&family=Tenor+Sans&display=swap" rel="stylesheet">
@@ -80,7 +80,7 @@ nav.hidden { transform: translateY(-100%); }
 .hero-title em { font-style: italic; color: var(--bark); }
 .hero-sub { font-size: 0.82rem; line-height: 1.9; color: var(--taupe); max-width: 360px; margin-bottom: 3.5rem; letter-spacing: 0.02em; }
 .hero-cta { display: flex; align-items: center; gap: 2rem; }
-.btn-dark { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 1rem 2.4rem; text-decoration: none; border: none; cursor: none; transition: background 0.3s, letter-spacing 0.3s; display: inline-block; }
+.btn-dark { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 1rem 2.4rem; text-decoration: none; border: none; cursor: pointer; transition: background 0.3s, letter-spacing 0.3s; display: inline-block; }
 .btn-dark:hover { background: var(--bark); letter-spacing: 0.3em; }
 .btn-text { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--taupe); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.25s, border-color 0.25s; }
 .btn-text:hover { color: var(--ink); border-color: var(--ink); }
@@ -288,7 +288,7 @@ footer { background: var(--ink); padding: 3rem 6rem; display: grid; grid-templat
 <nav>
   <div class="nav-row1">
     <div style="width:120px;"></div>
-    <a href="#home" class="nav-logo">AP Beauty Lab</a>
+    <a href="#home" class="nav-logo">The AP Beauty Lab</a>
     <div class="nav-row1-right">
       <a href="#booking" class="nav-book">Book a Session</a>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -388,6 +388,7 @@ footer { background: var(--ink); padding: 3rem 6rem; display: grid; grid-templat
   <div id="tab-lash" class="services-panel reveal">
     <div class="services-grid">
       <div>
+        <div class="service-row"><div><span class="svc-name">Lash Extensions</span><span class="svc-note">Steffany Parrales &middot; Price on consultation</span></div><span class="svc-price">TBD</span></div>
         <div class="service-row"><div><span class="svc-name">Lash Lift</span><span class="svc-note">Lasts 6&ndash;8 weeks</span></div><span class="svc-price">$60</span></div>
         <div class="service-row"><span class="svc-name">Lash Lift + Tint</span><span class="svc-price">$65</span></div>
         <div class="service-row"><div><span class="svc-name">Brow Lamination</span><span class="svc-note">Includes mapping &amp; wax</span></div><span class="svc-price">$60</span></div>
@@ -438,35 +439,18 @@ footer { background: var(--ink); padding: 3rem 6rem; display: grid; grid-templat
           <div class="form-group"><label>Email</label><input type="email" id="b_email" maxlength="100" required></div>
         </div>
         <div class="form-group">
+          <label>Select Esthetician</label>
+          <select id="b_provider" required onchange="updateServices()">
+            <option value="">Choose your provider&hellip;</option>
+            <option value="Alexandra Parrales">Alexandra Parrales</option>
+            <option value="Steffany Parrales">Steffany Parrales</option>
+            <option value="No preference">No preference</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Service</label>
           <select id="b_service" required>
-            <option value="">Select a service&hellip;</option>
-            <optgroup label="Facials">
-              <option>Signature Facial &mdash; $100</option>
-              <option>Microdermabrasion &mdash; $120</option>
-              <option>Chemical Peel &mdash; $135</option>
-              <option>Microneedling &mdash; $185</option>
-            </optgroup>
-            <optgroup label="Lymphatic Drainage">
-              <option>Body Drainage &mdash; $200</option>
-              <option>Full Body + Face &mdash; $285</option>
-              <option>Gold Package &mdash; $350</option>
-            </optgroup>
-            <optgroup label="Lash &amp; Brow">
-              <option>Lash Lift &mdash; $60</option>
-              <option>Lash Lift + Tint &mdash; $65</option>
-              <option>Brow Lamination &mdash; $60</option>
-              <option>Brow Lamination + Tint &mdash; $65</option>
-            </optgroup>
-            <optgroup label="Waxing">
-              <option>Brazilian &mdash; $80</option>
-              <option>Bikini &mdash; $45</option>
-              <option>Full Leg &mdash; $40</option>
-              <option>Full Arm &mdash; $30</option>
-              <option>Underarm &mdash; $20</option>
-              <option>Eyebrow Wax &mdash; $15</option>
-              <option>Eyebrow Wax + Tint &mdash; $20</option>
-            </optgroup>
+            <option value="">Select a provider first&hellip;</option>
           </select>
         </div>
         <div class="form-row">
@@ -598,8 +582,8 @@ footer { background: var(--ink); padding: 3rem 6rem; display: grid; grid-templat
   </div>
 </section>
 <footer>
-  <span class="footer-logo">AP Beauty Lab</span>
-  <span class="footer-copy">&copy; 2026 AP Beauty Lab &middot; Alexandra Parrales &middot; Garfield, NJ</span>
+  <span class="footer-logo">The AP Beauty Lab</span>
+  <span class="footer-copy">&copy; 2026 The AP Beauty Lab &middot; Garfield, NJ</span>
   <ul class="footer-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#services">Services</a></li>
@@ -796,6 +780,38 @@ window.addEventListener('scroll', () => { let current = ''; sections.forEach(s =
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector('nav');
 window.addEventListener('scroll', () => { const cur = window.scrollY; if (cur > lastScrollY && cur > 80) { navbar.classList.add('hidden'); } else { navbar.classList.remove('hidden'); } lastScrollY = cur; }, { passive: true });
+// ── PROVIDER SERVICE FILTER ──────────────────────────────────
+const SERVICES = {
+  'Alexandra Parrales': [
+    { group: 'Facials', items: ['Signature Facial — $100','Microdermabrasion — $120','Chemical Peel — $135','Microneedling — $185'] },
+    { group: 'Lymphatic Drainage', items: ['Body Drainage — $200','Full Body + Face — $285','Gold Package — $350'] },
+    { group: 'Lash & Brow', items: ['Lash Lift — $60','Lash Lift + Tint — $65','Brow Lamination — $60','Brow Lamination + Tint — $65'] },
+    { group: 'Waxing', items: ['Brazilian — $80','Bikini — $45','Full Leg — $40','Full Arm — $30','Underarm — $20','Eyebrow Wax — $15','Eyebrow Wax + Tint — $20'] },
+  ],
+  'Steffany Parrales': [
+    { group: 'Lash', items: ['Lash Extensions — Price on consultation'] },
+    { group: 'Lymphatic Drainage', items: ['Body Drainage — $200','Full Body + Face — $285','Gold Package — $350'] },
+  ],
+  'No preference': [
+    { group: 'Facials', items: ['Signature Facial — $100','Microdermabrasion — $120','Chemical Peel — $135','Microneedling — $185'] },
+    { group: 'Lymphatic Drainage', items: ['Body Drainage — $200','Full Body + Face — $285','Gold Package — $350'] },
+    { group: 'Lash & Brow', items: ['Lash Extensions — Price on consultation','Lash Lift — $60','Lash Lift + Tint — $65','Brow Lamination — $60','Brow Lamination + Tint — $65'] },
+    { group: 'Waxing', items: ['Brazilian — $80','Bikini — $45','Full Leg — $40','Full Arm — $30','Underarm — $20','Eyebrow Wax — $15','Eyebrow Wax + Tint — $20'] },
+  ]
+};
+function updateServices() {
+  const provider = document.getElementById('b_provider').value;
+  const sel = document.getElementById('b_service');
+  sel.innerHTML = '<option value="">Select a service…</option>';
+  if (!provider) return;
+  (SERVICES[provider] || []).forEach(group => {
+    const og = document.createElement('optgroup');
+    og.label = group.group;
+    group.items.forEach(item => { const o = document.createElement('option'); o.textContent = item; og.appendChild(o); });
+    sel.appendChild(og);
+  });
+}
+
 function showTab(id, btn) { document.querySelectorAll('.services-panel').forEach(p => p.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); document.getElementById('tab-'+id).classList.add('active'); btn.classList.add('active'); }
 document.querySelectorAll('.time-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); document.getElementById('b_time').value = btn.dataset.time; }); });
 document.getElementById('b_date').min = new Date().toISOString().split('T')[0];
