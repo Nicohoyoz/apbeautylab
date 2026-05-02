@@ -315,7 +315,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#newsletter" onclick="document.getElementById('subscribePopup').classList.add('open');document.body.style.overflow='hidden';">Newsletter</a></li>
+    <li><a href="#newsletter" onclick="event.preventDefault();var p=document.getElementById('subscribePopup');p.classList.add('open');document.body.style.overflow='hidden';">Newsletter</a></li>
   </ul>
   <div class="nav-instagram">
     <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" aria-label="AP Beauty Lab on Instagram">
@@ -751,16 +751,30 @@ document.getElementById('nlForm').addEventListener('submit',async function(e){e.
 (function(){
   if(localStorage.getItem('ap_nl_seen'))return;
   const popup=document.getElementById('subscribePopup');
-  const closeBtn=document.getElementById('popupClose');
-  function openPopup(){popup.classList.add('open');document.body.style.overflow='hidden';}
+  function openPopup(){popup.classList.add('open');popup.dataset.autoTriggered='1';document.body.style.overflow='hidden';}
   function closePopup(){popup.classList.remove('open');document.body.style.overflow='';localStorage.setItem('ap_nl_seen','1');}
-  setTimeout(openPopup,9000);
-  closeBtn.addEventListener('click',closePopup);
-  popup.addEventListener('click',e=>{if(e.target===popup)closePopup();});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&popup.classList.contains('open'))closePopup();});
+  setTimeout(openPopup,30000);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&popup.classList.contains('open')){popup.classList.remove('open');document.body.style.overflow='';if(popup.dataset.autoTriggered)localStorage.setItem('ap_nl_seen','1');}});
   document.getElementById('popupForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('popupStatus');const btn=this.querySelector('[type=submit]');const email=document.getElementById('p_email').value.trim();const fname=document.getElementById('p_name').value.trim();if(!isValidEmail(email)){status.textContent='Please enter a valid email.';return;}btn.textContent='Subscribing\u2026';btn.disabled=true;try{const data=await submitToWorker(email,fname);if(data.success){status.textContent='You\u2019re in. Thank you!';status.className='popup-status success';localStorage.setItem('ap_nl_seen','1');setTimeout(closePopup,2000);}else{throw new Error(data.error||'Failed');}}catch(err){status.textContent='Something went wrong. Please try again.';}finally{btn.textContent='Subscribe';btn.disabled=false;}});
 })();
-// ── UNSUBSCRIBE HANDLER ───────────────────────────────────────
+// ── POPUP CLOSE — works for both auto trigger and nav/hamburger trigger ──
+document.getElementById('popupClose').addEventListener('click', function() {
+  const popup = document.getElementById('subscribePopup');
+  popup.classList.remove('open');
+  document.body.style.overflow = '';
+  // Only set localStorage if user actually interacted (not just opened from nav)
+  // We track this with a flag on the popup element
+  if (popup.dataset.autoTriggered) {
+    localStorage.setItem('ap_nl_seen', '1');
+  }
+});
+document.getElementById('subscribePopup').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.classList.remove('open');
+    document.body.style.overflow = '';
+    if (this.dataset.autoTriggered) localStorage.setItem('ap_nl_seen', '1');
+  }
+});
 (function() {
   const params = new URLSearchParams(window.location.search);
   const email = params.get('unsubscribe');
