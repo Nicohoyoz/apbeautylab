@@ -315,7 +315,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#newsletter" onclick="event.preventDefault();var p=document.getElementById('subscribePopup');p.classList.add('open');document.body.style.overflow='hidden';">Newsletter</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
   </ul>
   <div class="nav-instagram">
     <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" aria-label="AP Beauty Lab on Instagram">
@@ -347,7 +347,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <a href="#about" onclick="closeMobileMenu()">About</a>
   <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
   <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <a href="#" onclick="closeMobileMenu();setTimeout(()=>{document.getElementById('subscribePopup').classList.add('open');document.body.style.overflow='hidden';},400);">Newsletter</a>
+  <a href="#newsletter" onclick="closeMobileMenu()">Newsletter</a>
   <a href="#booking" class="mobile-menu-book" onclick="closeMobileMenu()">Book a Session</a>
 </div>
 
@@ -569,7 +569,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   </div>
 </section>
 
-<div class="nl-strip reveal">
+<div class="nl-strip reveal" id="newsletter">
   <div class="nl-left">
     <h2>Stay in<br>the loop</h2>
     <p>Special offers, skincare tips, and new service announcements delivered to your inbox. No spam, ever.</p>
@@ -788,11 +788,15 @@ document.getElementById('subscribePopup').addEventListener('click', function(e) 
   fetch('https://apbeautylab-newsletter.nicolashoyos777.workers.dev', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action: 'unsubscribe', email: decodeURIComponent(email), secret: 'APBL_SECRET_2026' })
+    body: JSON.stringify({ action: 'unsubscribe', email: decodeURIComponent(email) })
   })
   .then(r => r.json())
-  .then(() => {
-    document.getElementById('unsubMsg').textContent = 'You have been removed from the AP Beauty Lab mailing list. We are sorry to see you go.';
+  .then(data => {
+    if (data.success) {
+      document.getElementById('unsubMsg').textContent = 'You have been removed from the AP Beauty Lab mailing list. We are sorry to see you go.';
+    } else {
+      document.getElementById('unsubMsg').textContent = 'Something went wrong. Please reply to any newsletter email to unsubscribe manually.';
+    }
     document.getElementById('unsubBack').style.display = 'inline-block';
   })
   .catch(() => {
