@@ -63,8 +63,9 @@ nav.hidden{transform:translateY(-100%);}
 .mobile-menu.open a:nth-child(4){opacity:1;transform:translateY(0);transition-delay:.2s;}
 .mobile-menu.open a:nth-child(5){opacity:1;transform:translateY(0);transition-delay:.25s;}
 .mobile-menu.open a:nth-child(6){opacity:1;transform:translateY(0);transition-delay:.3s;}
+.mobile-menu.open a:nth-child(7){opacity:1;transform:translateY(0);transition-delay:.35s;}
 .mobile-menu a:hover{color:var(--bark);}
-.mobile-menu-book{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:1rem 2.4rem;text-decoration:none;margin-top:1rem;opacity:0;transform:translateY(16px);transition:opacity .3s ease,transform .3s ease,background .25s,color .25s;transition-delay:.35s;}
+.mobile-menu-book{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:1rem 2.4rem;text-decoration:none;margin-top:1rem;opacity:0;transform:translateY(16px);transition:opacity .3s ease,transform .3s ease,background .25s,color .25s;transition-delay:.42s;}
 .mobile-menu.open .mobile-menu-book{opacity:1;transform:translateY(0);}
 .mobile-menu-book:hover{background:var(--ink);color:var(--paper);}
 #home{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:9rem;overflow:hidden;}
@@ -314,6 +315,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#newsletter" onclick="document.getElementById('subscribePopup').classList.add('open');document.body.style.overflow='hidden';">Newsletter</a></li>
   </ul>
   <div class="nav-instagram">
     <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" aria-label="AP Beauty Lab on Instagram">
@@ -345,6 +347,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <a href="#about" onclick="closeMobileMenu()">About</a>
   <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
   <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#" onclick="closeMobileMenu();setTimeout(()=>{document.getElementById('subscribePopup').classList.add('open');document.body.style.overflow='hidden';},400);">Newsletter</a>
   <a href="#booking" class="mobile-menu-book" onclick="closeMobileMenu()">Book a Session</a>
 </div>
 
@@ -756,6 +759,32 @@ document.getElementById('nlForm').addEventListener('submit',async function(e){e.
   popup.addEventListener('click',e=>{if(e.target===popup)closePopup();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&popup.classList.contains('open'))closePopup();});
   document.getElementById('popupForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('popupStatus');const btn=this.querySelector('[type=submit]');const email=document.getElementById('p_email').value.trim();const fname=document.getElementById('p_name').value.trim();if(!isValidEmail(email)){status.textContent='Please enter a valid email.';return;}btn.textContent='Subscribing\u2026';btn.disabled=true;try{const data=await submitToWorker(email,fname);if(data.success){status.textContent='You\u2019re in. Thank you!';status.className='popup-status success';localStorage.setItem('ap_nl_seen','1');setTimeout(closePopup,2000);}else{throw new Error(data.error||'Failed');}}catch(err){status.textContent='Something went wrong. Please try again.';}finally{btn.textContent='Subscribe';btn.disabled=false;}});
+})();
+// ── UNSUBSCRIBE HANDLER ───────────────────────────────────────
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get('unsubscribe');
+  if (!email) return;
+
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:2rem;';
+  overlay.innerHTML = '<div style="text-align:center;max-width:420px;"><h2 style="font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--ink);margin-bottom:1.2rem;">One moment...</h2><p style="font-size:.84rem;color:var(--taupe);line-height:1.85;" id="unsubMsg">We are processing your request.</p><a href="https://theapbeautylab.com" id="unsubBack" style="display:none;margin-top:2rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bark);text-decoration:none;border-bottom:1px solid var(--bark);padding-bottom:2px;">Back to the site</a></div>';
+  document.body.appendChild(overlay);
+
+  fetch('https://apbeautylab-newsletter.nicolashoyos777.workers.dev', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'unsubscribe', email: decodeURIComponent(email), secret: 'APBL_SECRET_2026' })
+  })
+  .then(r => r.json())
+  .then(() => {
+    document.getElementById('unsubMsg').textContent = 'You have been removed from the AP Beauty Lab mailing list. We are sorry to see you go.';
+    document.getElementById('unsubBack').style.display = 'inline-block';
+  })
+  .catch(() => {
+    document.getElementById('unsubMsg').textContent = 'Something went wrong. Please reply to any newsletter email to unsubscribe manually.';
+    document.getElementById('unsubBack').style.display = 'inline-block';
+  });
 })();
 function openModal(id){const el=document.getElementById('modal-'+id);if(el){el.classList.add('open');document.body.style.overflow='hidden';el.scrollTop=0;}}
 function closeModal(id){const el=document.getElementById('modal-'+id);if(el){el.classList.remove('open');document.body.style.overflow='';}}
