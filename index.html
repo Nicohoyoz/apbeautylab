@@ -98,6 +98,8 @@ section{padding:8rem 6rem;}
 .services-panel{display:none;}
 .services-panel.active{display:block;}
 .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;}
+.services-grid > div:nth-child(1){padding-right:2rem;}
+.services-grid > div:nth-child(2){border-left:1px solid var(--warm);padding-left:2rem;}
 .service-row{display:flex;justify-content:space-between;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid var(--warm);gap:1rem;transition:padding-left .25s;}
 .service-row:hover{padding-left:.4rem;}
 .service-row:last-child{border-bottom:none;}
@@ -210,6 +212,8 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   section{padding:4rem 1.5rem;}
   .services-head{grid-template-columns:1fr;gap:1rem;margin-bottom:2.5rem;}
   .services-grid{grid-template-columns:1fr;gap:0;}
+  .services-grid > div:nth-child(1){padding-right:0;}
+  .services-grid > div:nth-child(2){border-left:none;padding-left:0;}
   .services-tabs{gap:0;flex-wrap:wrap;}
   .tab-btn{padding:.7rem 1.2rem .7rem 0;font-size:.58rem;}
   .booking-wrap{grid-template-columns:1fr;gap:2.5rem;}
