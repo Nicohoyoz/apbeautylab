@@ -8,7 +8,7 @@
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 <meta property="og:title" content="The AP Beauty Lab — Garfield, NJ">
-<meta property="og:description" content="Licensed esthetician in Garfield, NJ. Facials, Lymphatic Drainage, Lash &amp; Brow, Waxing. Book your session today.">
+<meta property="og:description" content="Licensed esthetician in Garfield, NJ. Facials, Lymphatic Drainage, Lash & Brow, Waxing.">
 <meta property="og:image" content="https://theapbeautylab.com/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,11 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Didact+Gothic&family=Tenor+Sans&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --paper:#F9F6F1;--off:#F2EDE6;--warm:#E8E0D5;--stone:#C4B8A8;
-  --taupe:#9B8F82;--bark:#6B5D52;--ink:#1A1410;
-  --serif:'Playfair Display',Georgia,serif;--sans:'Tenor Sans','Didact Gothic',sans-serif;
-}
+:root{--paper:#F9F6F1;--off:#F2EDE6;--warm:#E8E0D5;--stone:#C4B8A8;--taupe:#9B8F82;--bark:#6B5D52;--ink:#1A1410;--serif:'Playfair Display',Georgia,serif;--sans:'Tenor Sans','Didact Gothic',sans-serif;}
 html{scroll-behavior:smooth;background:var(--paper);}
 body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden;cursor:none;}
 @media(hover:none)and(pointer:coarse){.cursor-dot,.cursor-ring{display:none!important;}body{cursor:auto;}}
@@ -122,12 +118,6 @@ section{padding:8rem 6rem;}
 .form-group input,.form-group select,.form-group textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--warm);padding:.5rem 0;font-family:var(--sans);font-size:.82rem;color:var(--ink);outline:none;transition:border-color .25s;-webkit-appearance:none;border-radius:0;letter-spacing:.02em;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--ink);}
 .form-group textarea{resize:vertical;min-height:60px;}
-.time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:.5rem;}
-.time-btn{padding:.45rem .2rem;text-align:center;font-size:.68rem;font-family:var(--sans);color:var(--taupe);border:1px solid var(--warm);background:transparent;cursor:none;transition:all .2s;letter-spacing:.04em;}
-.time-btn:hover{border-color:var(--ink);color:var(--ink);}
-.time-btn.selected{background:var(--ink);color:var(--paper);border-color:var(--ink);}
-.time-btn-break{opacity:.35;cursor:not-allowed;text-decoration:line-through;}
-.time-btn-break:hover{border-color:var(--warm);color:var(--taupe);}
 .form-status{font-size:.75rem;color:var(--taupe);margin-top:.8rem;min-height:1.2rem;text-align:center;}
 .form-status.success{color:var(--bark);}
 .form-status.error{color:#8B3A3A;}
@@ -155,13 +145,6 @@ section{padding:8rem 6rem;}
 .nl-strip{background:var(--ink);padding:6rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
 .nl-left h2{font-family:var(--serif);font-size:clamp(2.2rem,3.2vw,3.4rem);font-weight:500;color:var(--paper);line-height:1.12;margin-bottom:.8rem;}
 .nl-left p{font-size:.8rem;color:rgba(249,246,241,.5);line-height:1.85;letter-spacing:.02em;}
-.nl-form{display:flex;flex-direction:column;gap:1rem;}
-.nl-row{display:flex;gap:0;border-bottom:1px solid rgba(196,184,168,.3);}
-.nl-input{flex:1;background:transparent;border:none;padding:.7rem 0;font-family:var(--sans);font-size:.82rem;color:var(--paper);outline:none;letter-spacing:.02em;}
-.nl-input::placeholder{color:rgba(249,246,241,.3);}
-.nl-submit{font-family:var(--sans);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper);background:none;border:none;cursor:none;padding:.7rem 0 .7rem 1.2rem;transition:color .25s,letter-spacing .25s;}
-.nl-submit:hover{color:var(--stone);letter-spacing:.3em;}
-.nl-note{font-size:.65rem;color:rgba(249,246,241,.3);letter-spacing:.04em;}
 #contact{background:var(--off);}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8rem;margin-top:4rem;}
 .location-block h3{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--ink);margin-bottom:.3rem;}
@@ -198,23 +181,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 .modal-table th{text-align:left;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);padding:.4rem .6rem;border-bottom:1px solid var(--warm);font-weight:400;}
 .modal-table td{padding:.5rem .6rem;border-bottom:1px solid var(--warm);color:var(--taupe);vertical-align:top;}
 .modal-table tr:last-child td{border-bottom:none;}
-.popup-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(26,20,16,.55);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:1rem;}
-.popup-overlay.open{display:flex;}
-.popup-box{background:var(--paper);width:100%;max-width:460px;padding:3rem;position:relative;animation:popIn .4s cubic-bezier(.25,.46,.45,.94) both;}
-@keyframes popIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.popup-close{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;cursor:pointer;color:var(--stone);font-size:1.2rem;line-height:1;padding:.3rem;transition:color .2s;}
-.popup-close:hover{color:var(--ink);}
-.popup-eyebrow{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:.8rem;}
-.popup-title{font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:.6rem;}
-.popup-title em{font-style:italic;color:var(--bark);}
-.popup-sub{font-size:.8rem;color:var(--taupe);line-height:1.8;margin-bottom:1.8rem;}
-.popup-input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--warm);padding:.65rem 0;font-family:var(--sans);font-size:.82rem;color:var(--ink);outline:none;letter-spacing:.02em;display:block;margin-bottom:.8rem;}
-.popup-input::placeholder{color:var(--stone);}
-.popup-btn{width:100%;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper);background:var(--ink);border:none;padding:1rem 2rem;cursor:pointer;transition:background .3s;margin-top:.4rem;}
-.popup-btn:hover{background:var(--bark);}
-.popup-note{font-size:.62rem;color:var(--stone);letter-spacing:.04em;margin-top:.8rem;}
-.popup-status{font-size:.75rem;color:var(--taupe);margin-top:.6rem;min-height:1rem;}
-.popup-status.success{color:var(--bark);}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94);}
@@ -236,7 +202,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   .nav-book{display:none;}
   .hamburger{display:flex;}
   .nav-instagram{padding:.5rem 1.5rem;justify-content:flex-start;}
-  #home{grid-template-columns:1fr;min-height:auto;max-height:none;padding-top:8.5rem;}
+  #home{grid-template-columns:1fr;min-height:auto;padding-top:8.5rem;}
   .hero-left{padding:3rem 1.5rem 2rem;}
   .hero-title{font-size:2.8rem;}
   .hero-sub{font-size:.84rem;max-width:100%;}
@@ -248,9 +214,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   .tab-btn{padding:.7rem 1.2rem .7rem 0;font-size:.58rem;}
   .booking-wrap{grid-template-columns:1fr;gap:2.5rem;}
   .booking-form-card{padding:2rem 1.5rem;}
-  .form-row{grid-template-columns:1fr;gap:0;}
-  .time-grid{grid-template-columns:repeat(4,1fr);gap:4px;}
-  .time-btn{font-size:.6rem;padding:.4rem .1rem;}
   #about{grid-template-columns:1fr;}
   .about-media{min-height:65vw;}
   .about-content{padding:3rem 1.5rem;}
@@ -265,17 +228,14 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   footer{grid-template-columns:1fr;gap:.8rem;text-align:center;padding:2rem 1.5rem;}
   .footer-links{justify-content:center;flex-wrap:wrap;gap:1rem;}
   .footer-legal{padding:1rem 1.5rem 1.5rem;gap:1rem;}
-  .popup-box{padding:2rem 1.5rem;}
 }
 @media(max-width:600px){
   .hero-title{font-size:2.2rem;}
   .gallery-item{flex:0 0 220px;height:300px;}
-  .time-grid{grid-template-columns:repeat(2,1fr);}
   .about-stats{flex-direction:column;gap:1.2rem;}
   .services-tabs{overflow-x:auto;padding-bottom:.5rem;}
   .tab-btn{white-space:nowrap;}
   .section-title{font-size:2.2rem;}
-  .booking-form-card{padding:1.5rem 1rem;}
   footer{padding:1.5rem 1rem;}
 }
 </style>
@@ -283,23 +243,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 <body>
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
-<div class="popup-overlay" id="subscribePopup" role="dialog" aria-modal="true">
-  <div class="popup-box">
-    <button class="popup-close" id="popupClose" aria-label="Close">&times;</button>
-    <span class="popup-eyebrow">Stay in the loop</span>
-    <h2 class="popup-title">Skin tips &amp; offers,<br><em>just for you</em></h2>
-    <p class="popup-sub">Join Alexandra's list for exclusive offers, seasonal skin tips, and new service announcements. No spam, ever.</p>
-    <form id="popupForm" novalidate>
-      <input class="popup-input" type="text" id="p_name" placeholder="First name" maxlength="60">
-      <input class="popup-input" type="email" id="p_email" placeholder="Email address" maxlength="100" required>
-      <button type="submit" class="popup-btn">Subscribe</button>
-      <p class="popup-note">By subscribing you agree to receive occasional emails from AP Beauty Lab.</p>
-      <p class="popup-status" id="popupStatus"></p>
-    </form>
-  </div>
-</div>
-
 <nav>
   <div class="nav-row1">
     <div style="width:120px;"></div>
@@ -319,27 +262,17 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   </ul>
   <div class="nav-instagram">
     <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" aria-label="AP Beauty Lab on Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       @alex.esthetics_
     </a>
-    <span style="color:var(--warm);font-size:.7rem;margin:0 .6rem;">·</span>
+    <span style="color:var(--warm);font-size:.7rem;margin:0 .6rem;">&middot;</span>
     <a href="https://www.instagram.com/ale.nicole14?igsh=MWVybjlzcGI5ZGtrbg==" target="_blank" rel="noopener noreferrer" aria-label="Alexandra's personal Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       @ale.nicole14
     </a>
   </div>
 </nav>
-
 <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home" onclick="closeMobileMenu()">Home</a>
   <a href="#services" onclick="closeMobileMenu()">Services</a>
@@ -350,7 +283,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <a href="#newsletter" onclick="closeMobileMenu()">Newsletter</a>
   <a href="#booking" class="mobile-menu-book" onclick="closeMobileMenu()">Book a Session</a>
 </div>
-
 <section id="home">
   <div class="hero-left">
     <span class="hero-eyebrow reveal">Licensed Esthetician &nbsp;&middot;&nbsp; Garfield, NJ</span>
@@ -365,7 +297,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <img src="images/hero.jpg" alt="AP Beauty Lab" class="hero-img" id="heroImg">
   </div>
 </section>
-
 <div class="ticker-wrap">
   <div class="ticker-track">
     <span class="ticker-item">Signature Facial</span><span class="ticker-item ticker-sep">&middot;</span>
@@ -388,7 +319,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <span class="ticker-item">Waxing</span><span class="ticker-item ticker-sep">&middot;</span>
   </div>
 </div>
-
 <section id="services">
   <div class="services-head reveal">
     <div>
@@ -453,7 +383,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     </div>
   </div>
 </section>
-
 <section id="booking">
   <div class="booking-wrap">
     <div class="booking-info reveal-left">
@@ -462,7 +391,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
       <p>Choose your service, pick a date and time, and submit. Alexandra will confirm within 24 hours.</p>
       <ul class="booking-details">
         <li>Wednesday and Friday in Garfield, NJ. Address provided after confirmation.</li>
-        <li>Other days available by request. Address provided after confirmation.</li>
+        <li>Other days available by request.</li>
         <li>No Sunday appointments</li>
         <li>Bilingual. English and Spanish.</li>
         <li>Arrive 5 minutes early</li>
@@ -471,60 +400,15 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     </div>
     <div class="booking-form-card reveal-right">
       <h3 class="form-title">Request an Appointment</h3>
-      <form id="bookingForm" novalidate>
-        <div class="form-row">
-          <div class="form-group"><label>First name</label><input type="text" id="b_first" maxlength="60" required></div>
-          <div class="form-group"><label>Last name</label><input type="text" id="b_last" maxlength="60" required></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label>Phone</label><input type="tel" id="b_phone" maxlength="20" required></div>
-          <div class="form-group"><label>Email</label><input type="email" id="b_email" maxlength="100" required></div>
-        </div>
-        <div class="form-group">
-          <label>Select Esthetician</label>
-          <select id="b_provider" required onchange="updateServices()">
-            <option value="">Choose your provider&hellip;</option>
-            <option value="Alexandra Parrales">Alexandra Parrales</option>
-            <option value="Steffany Parrales">Steffany Parrales</option>
-            <option value="No preference">No preference</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Service</label>
-          <select id="b_service" required><option value="">Select a provider first&hellip;</option></select>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label>Preferred date</label><input type="date" id="b_date" required></div>
-          <div class="form-group">
-            <label>Language</label>
-            <select id="b_lang">
-              <option value="English">English</option>
-              <option value="Spanish">Spanish / Espa&ntilde;ol</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Select a time</label>
-          <div class="time-grid" id="timeGrid">
-            <button type="button" class="time-btn" data-time="9:00 AM">9:00 AM</button>
-            <button type="button" class="time-btn" data-time="10:00 AM">10:00 AM</button>
-            <button type="button" class="time-btn" data-time="11:00 AM">11:00 AM</button>
-            <button type="button" class="time-btn" data-time="12:00 PM">12:00 PM</button>
-            <button type="button" class="time-btn time-btn-break" data-time="" disabled>1:00 PM</button>
-            <button type="button" class="time-btn" data-time="2:00 PM">2:00 PM</button>
-            <button type="button" class="time-btn" data-time="3:00 PM">3:00 PM</button>
-            <button type="button" class="time-btn" data-time="4:00 PM">4:00 PM</button>
-          </div>
-          <input type="hidden" id="b_time">
-        </div>
-        <div class="form-group"><label>Notes (optional)</label><textarea id="b_notes" maxlength="500" placeholder="Skin concerns, allergies, requests&hellip;"></textarea></div>
-        <button type="submit" class="btn-dark" style="width:100%;text-align:center;margin-top:.5rem;">Request Appointment</button>
-        <p class="form-status" id="bookingStatus"></p>
-      </form>
+      <div style="padding:2rem 0;text-align:center;">
+        <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:1.2rem;">Under Construction</span>
+        <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:1rem;">Online booking<br><em style="color:var(--bark);">coming soon.</em></p>
+        <p style="font-size:.82rem;color:var(--taupe);line-height:1.85;margin-bottom:2rem;max-width:320px;margin-left:auto;margin-right:auto;">While we finalize our booking system, please reach out directly on Instagram to schedule your appointment.</p>
+        <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" class="btn-dark">DM on Instagram</a>
+      </div>
     </div>
   </div>
 </section>
-
 <div id="about">
   <div class="about-media reveal-left" id="aboutMedia">
     <img src="images/about.jpg" alt="Alexandra Parrales" id="aboutImg" style="width:100%;height:100%;min-height:600px;object-fit:cover;object-position:center top;display:block;">
@@ -540,7 +424,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     </div>
   </div>
 </div>
-
 <section id="gallery">
   <div class="gallery-head reveal">
     <div>
@@ -568,25 +451,20 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <div class="gallery-item"><img src="images/brow-4.jpg" alt="Brow lamination"><div class="img-overlay"></div></div>
   </div>
 </section>
-
 <div class="nl-strip reveal" id="newsletter">
   <div class="nl-left">
     <h2>Stay in<br>the loop</h2>
     <p>Special offers, skincare tips, and new service announcements delivered to your inbox. No spam, ever.</p>
   </div>
-  <div>
-    <form class="nl-form" id="nlForm" novalidate>
-      <div class="nl-row">
-        <input class="nl-input" type="text" id="nl_name" placeholder="First name" maxlength="60">
-        <input class="nl-input" type="email" id="nl_email" placeholder="Email address" maxlength="100" required>
-        <button type="submit" class="nl-submit">Subscribe &rarr;</button>
-      </div>
-      <p class="nl-note">By subscribing you agree to receive occasional emails from AP Beauty Lab.</p>
-      <p class="form-status" id="nlStatus" style="color:rgba(249,246,241,.7);margin-top:.5rem;min-height:1rem;font-size:.75rem;"></p>
-    </form>
+  <div style="display:flex;flex-direction:column;justify-content:center;">
+    <div style="border-left:1px solid rgba(196,184,168,.25);padding-left:3rem;">
+      <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(249,246,241,.35);display:block;margin-bottom:.8rem;">Coming soon</span>
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:400;color:var(--paper);line-height:1.2;margin-bottom:1rem;">Newsletter launching<br><em style="color:var(--bark);">very soon.</em></p>
+      <p style="font-size:.78rem;color:rgba(249,246,241,.4);line-height:1.8;max-width:320px;">We are putting the finishing touches on our mailing list. Check back soon to subscribe for exclusive offers and skincare tips.</p>
+      <p style="font-size:.68rem;color:rgba(249,246,241,.25);margin-top:1.2rem;letter-spacing:.06em;">In the meantime, follow us on Instagram &mdash; <span style="color:rgba(249,246,241,.5);">@alex.esthetics_</span></p>
+    </div>
   </div>
 </div>
-
 <section id="contact">
   <div class="reveal">
     <span class="eyebrow">Find me</span>
@@ -603,35 +481,24 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     </div>
     <div class="contact-form reveal-right">
       <h3>Send a message</h3>
-      <form id="contactForm" novalidate>
-        <div class="form-group"><label>Your name</label><input type="text" id="c_name" maxlength="100" required></div>
-        <div class="form-group"><label>Email</label><input type="email" id="c_email" maxlength="100" required></div>
-        <div class="form-group">
-          <label>Subject</label>
-          <select id="c_subject">
-            <option>General question</option><option>Service inquiry</option>
-            <option>Pricing</option><option>Rescheduling</option><option>Other</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Message</label><textarea id="c_message" maxlength="1000" placeholder="How can I help you?" required></textarea></div>
-        <button type="submit" class="btn-dark">Send Message</button>
-        <p class="form-status" id="contactStatus"></p>
-      </form>
+      <div style="padding:2rem 0;">
+        <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:1rem;">Under Construction</span>
+        <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:.8rem;">Contact form<br><em style="color:var(--bark);">coming soon.</em></p>
+        <p style="font-size:.8rem;color:var(--taupe);line-height:1.85;margin-bottom:1.5rem;">For questions, reach out directly on Instagram and we will get back to you as soon as possible.</p>
+        <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" class="btn-dark" style="display:inline-block;">DM on Instagram</a>
+      </div>
     </div>
   </div>
 </section>
-
 <footer>
   <span class="footer-logo">The AP Beauty Lab</span>
   <span class="footer-copy">&copy; 2026 The AP Beauty Lab &middot; Garfield, NJ</span>
   <ul class="footer-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#booking">Book</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-    <li><a href="https://www.instagram.com/ale.nicole14?igsh=MWVybjlzcGI5ZGtrbg==" target="_blank" rel="noopener noreferrer">Personal</a></li>
   </ul>
 </footer>
 <div class="footer-legal">
@@ -641,7 +508,6 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <a onclick="openModal('cookies')">Cookie Policy</a>
   <a onclick="openModal('cancellation')">Cancellation Policy</a>
 </div>
-
 <div id="modal-privacy" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Privacy Policy</h2>
@@ -649,30 +515,26 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <div class="modal-divider"></div>
   <p class="modal-p">AP Beauty Lab is committed to protecting your privacy.</p>
   <p class="modal-h2">Information We Collect</p>
-  <ul class="modal-ul"><li>Name, phone number, and email address via booking and contact forms</li><li>Service preferences and health information you voluntarily share</li><li>Email address if you subscribe to our newsletter</li></ul>
+  <ul class="modal-ul"><li>Name, phone number, and email address via booking and contact forms</li><li>Service preferences and health information you voluntarily share</li></ul>
   <p class="modal-h2">How We Use Your Information</p>
-  <ul class="modal-ul"><li>To confirm and manage appointment bookings</li><li>To respond to your messages and questions</li><li>To send newsletters if you have subscribed</li></ul>
+  <ul class="modal-ul"><li>To confirm and manage appointment bookings</li><li>To respond to your messages and questions</li></ul>
   <p class="modal-p">We do not sell, rent, or trade your personal information to any third party.</p>
   <p class="modal-h2">Your Rights</p>
-  <ul class="modal-ul"><li>Right to access, correct, or delete your personal data</li><li>Right to unsubscribe. Every newsletter contains an unsubscribe link.</li></ul>
+  <ul class="modal-ul"><li>Right to access, correct, or delete your personal data</li></ul>
   <p class="modal-p">Contact: <strong>alex.esthetics14@gmail.com</strong></p>
 </div></div>
-
 <div id="modal-terms" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('terms')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Terms of Service</h2>
   <span class="modal-date">Effective Date: March 25, 2026 &middot; AP Beauty Lab, Garfield, NJ</span>
   <div class="modal-divider"></div>
-  <p class="modal-p">By booking a service with AP Beauty Lab, you agree to these terms.</p>
+  <p class="modal-p">By using this website you agree to these terms.</p>
   <p class="modal-h2">Booking and Appointments</p>
-  <ul class="modal-ul"><li>Appointments are not confirmed until you receive direct confirmation from Alexandra</li><li>You must be 18 or older to book independently</li><li>Please arrive 5 minutes before your scheduled time</li></ul>
+  <ul class="modal-ul"><li>Appointments are confirmed directly by Alexandra via Instagram DM</li><li>You must be 18 or older to book independently</li><li>Please arrive 5 minutes before your scheduled time</li></ul>
   <p class="modal-h2">Cancellation and Refunds</p>
   <ul class="modal-ul"><li>Cancellations require at least 24 hours notice</li><li>Less than 24 hours notice may incur a 50% fee</li><li>Completed services are non-refundable</li></ul>
-  <p class="modal-h2">Health Disclosure</p>
-  <ul class="modal-ul"><li>You are responsible for disclosing medical conditions, allergies, and medications</li><li>Our services are not medical treatments</li></ul>
   <p class="modal-h2">Governing Law</p><p class="modal-p">These Terms are governed by the laws of the State of New Jersey.</p>
 </div></div>
-
 <div id="modal-disclaimer" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('disclaimer')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Health &amp; Wellness Disclaimer</h2>
@@ -680,12 +542,11 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <div class="modal-divider"></div>
   <div class="modal-alert"><p>The services and content provided by AP Beauty Lab are for general wellness and cosmetic purposes only. Nothing on this website constitutes medical advice, diagnosis, or treatment.</p></div>
   <p class="modal-h2">Not Medical Treatment</p>
-  <ul class="modal-ul"><li>All services are cosmetic and wellness services, not medical procedures</li><li>Results vary by individual and are not guaranteed</li><li>No service is intended to diagnose, treat, cure, or prevent any medical condition</li></ul>
+  <ul class="modal-ul"><li>All services are cosmetic and wellness services, not medical procedures</li><li>Results vary by individual and are not guaranteed</li></ul>
   <p class="modal-h2">Consult Your Doctor First If You Have</p>
   <ul class="modal-ul"><li>Active infections, blood clots, heart conditions, or cancer</li><li>Recent surgery within 6 weeks or pregnancy</li><li>Kidney or liver disease</li></ul>
   <p class="modal-p">All photos are used with written client consent and have not been digitally altered.</p>
 </div></div>
-
 <div id="modal-cookies" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('cookies')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Cookie &amp; Data Policy</h2>
@@ -694,9 +555,8 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <p class="modal-h2">What We Do NOT Use</p>
   <ul class="modal-ul"><li>Google Analytics or behavioral tracking cookies</li><li>Facebook Pixel or social media tracking</li><li>Advertising or retargeting cookies</li></ul>
   <p class="modal-h2">What Is Collected</p>
-  <table class="modal-table"><tr><th>What</th><th>Why</th></tr><tr><td>Server logs</td><td>Standard hosting security logs, not used for tracking</td></tr><tr><td>Form submissions</td><td>Sent via Web3Forms to Alexandra's email only</td></tr><tr><td>Newsletter emails</td><td>Stored in subscriber list for newsletter use only</td></tr></table>
+  <table class="modal-table"><tr><th>What</th><th>Why</th></tr><tr><td>Server logs</td><td>Standard hosting security logs, not used for tracking</td></tr></table>
 </div></div>
-
 <div id="modal-cancellation" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('cancellation')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Cancellation, Refund &amp; Deposit Policy</h2>
@@ -707,13 +567,12 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <p class="modal-h2">Refunds</p>
   <ul class="modal-ul"><li>Completed services are non-refundable</li><li>Adverse reactions must be reported within 48 hours</li></ul>
 </div></div>
-
 <script>
-const W3F_ACCESS_KEY='6fe8e2b8-5cce-4fee-9173-d8cf0f16f87e';
 const aboutMedia=document.getElementById('aboutMedia');
 if(aboutMedia){const vid=document.createElement('video');vid.autoplay=true;vid.muted=true;vid.loop=true;vid.playsInline=true;vid.style.cssText='object-fit:cover;width:100%;height:100%;min-height:600px;display:block;';const src=document.createElement('source');src.src='images/intro.mp4';src.type='video/mp4';vid.appendChild(src);vid.addEventListener('canplay',()=>{document.getElementById('aboutImg').style.display='none';aboutMedia.appendChild(vid);vid.play();});vid.load();}
 const hamburger=document.getElementById('hamburger');
 const mobileMenu=document.getElementById('mobileMenu');
+const navbar=document.querySelector('nav');
 hamburger.addEventListener('click',()=>{const isOpen=mobileMenu.classList.contains('open');if(isOpen){closeMobileMenu();}else{mobileMenu.style.display='flex';requestAnimationFrame(()=>mobileMenu.classList.add('open'));hamburger.classList.add('open');document.body.style.overflow='hidden';navbar.classList.remove('hidden');navbar.classList.add('nav-locked');}});
 function closeMobileMenu(){mobileMenu.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow='';navbar.classList.remove('nav-locked');setTimeout(()=>{mobileMenu.style.display='none';},350);}
 if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){const dot=document.getElementById('cursorDot');const ring=document.getElementById('cursorRing');let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';dot.style.opacity='1';ring.style.opacity='1';});function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();document.querySelectorAll('a,button,.gallery-item').forEach(el=>{el.addEventListener('mouseenter',()=>{dot.style.transform='translate(-50%,-50%) scale(2)';ring.style.transform='translate(-50%,-50%) scale(1.5)';ring.style.borderColor='rgba(107,93,82,.5)';});el.addEventListener('mouseleave',()=>{dot.style.transform='translate(-50%,-50%)';ring.style.transform='translate(-50%,-50%)';ring.style.borderColor='rgba(26,20,16,.35)';});});}
@@ -729,81 +588,8 @@ galleryItems.forEach(item=>{item.style.opacity='0';item.style.transition='opacit
 const heroImg=document.getElementById('heroImg');
 if(heroImg)heroImg.addEventListener('load',()=>heroImg.classList.add('loaded'));
 let lastScrollY=window.scrollY;
-const navbar=document.querySelector('nav');
 window.addEventListener('scroll',()=>{const cur=window.scrollY;if(cur>lastScrollY&&cur>80&&!navbar.classList.contains('nav-locked')){navbar.classList.add('hidden');}else if(!navbar.classList.contains('nav-locked')){navbar.classList.remove('hidden');}lastScrollY=cur;},{passive:true});
-const SERVICES={'Alexandra Parrales':[{group:'Facials',items:['Signature Facial $100','Microdermabrasion $120','Chemical Peel $135','Microneedling $185']},{group:'Lymphatic Drainage',items:['Body Drainage $200','Full Body and Face $285','Gold Package $350']},{group:'Lash and Brow',items:['Lash Lift $60','Lash Lift and Tint $65','Brow Lamination $60','Brow Lamination and Tint $65']},{group:'Waxing',items:['Brazilian $80','Bikini $45','Full Leg $40','Full Arm $30','Underarm $20','Eyebrow Wax $15','Eyebrow Wax and Tint $20']}],'Steffany Parrales':[{group:'Lash',items:['Lash Extensions. Price on consultation.']},{group:'Lymphatic Drainage',items:['Body Drainage $200','Full Body and Face $285','Gold Package $350']}],'No preference':[{group:'Facials',items:['Signature Facial $100','Microdermabrasion $120','Chemical Peel $135','Microneedling $185']},{group:'Lymphatic Drainage',items:['Body Drainage $200','Full Body and Face $285','Gold Package $350']},{group:'Lash and Brow',items:['Lash Extensions. Price on consultation.','Lash Lift $60','Lash Lift and Tint $65','Brow Lamination $60','Brow Lamination and Tint $65']},{group:'Waxing',items:['Brazilian $80','Bikini $45','Full Leg $40','Full Arm $30','Underarm $20','Eyebrow Wax $15','Eyebrow Wax and Tint $20']}]};
-function updateServices(){const provider=document.getElementById('b_provider').value;const sel=document.getElementById('b_service');sel.innerHTML='<option value="">Select a service\u2026</option>';if(!provider)return;(SERVICES[provider]||[]).forEach(group=>{const og=document.createElement('optgroup');og.label=group.group;group.items.forEach(item=>{const o=document.createElement('option');o.textContent=item;og.appendChild(o);});sel.appendChild(og);});}
 function showTab(id,btn){document.querySelectorAll('.services-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
-document.querySelectorAll('.time-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.getElementById('b_time').value=btn.dataset.time;});});
-document.getElementById('b_date').min=new Date().toISOString().split('T')[0];
-document.getElementById('b_date').addEventListener('input',function(){const d=new Date(this.value+'T00:00:00');if(d.getDay()===0){this.value='';const s=document.getElementById('bookingStatus');s.textContent='Sundays are unavailable. Please select another day.';s.className='form-status error';setTimeout(()=>{s.textContent='';s.className='form-status';},3000);}});
-document.querySelectorAll('.time-btn-break').forEach(btn=>{btn.addEventListener('click',e=>e.preventDefault());});
-function sanitize(str){return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;').replace(/\//g,'&#x2F;').trim().slice(0,1000);}
-function isValidEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
-function isValidPhone(p){return /^[\d\s\(\)\+\-]{7,20}$/.test(p);}
-const COOLDOWN_MS=60000;const lastSubmit={};
-function isRateLimited(id){const now=Date.now();if(lastSubmit[id]&&(now-lastSubmit[id])<COOLDOWN_MS){return Math.ceil((COOLDOWN_MS-(now-lastSubmit[id]))/1000);}return false;}
-function setRateLimited(id){lastSubmit[id]=Date.now();}
-document.getElementById('bookingForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('bookingStatus');const btn=this.querySelector('[type=submit]');const rl=isRateLimited('booking');if(rl){status.textContent='Please wait '+rl+' seconds before submitting again.';status.className='form-status error';return;}const time=document.getElementById('b_time').value;if(!time){status.textContent='Please select a time slot.';status.className='form-status error';return;}if(!isValidEmail(document.getElementById('b_email').value)){status.textContent='Please enter a valid email.';status.className='form-status error';return;}if(!isValidPhone(document.getElementById('b_phone').value)){status.textContent='Please enter a valid phone number.';status.className='form-status error';return;}setRateLimited('booking');btn.textContent='Sending\u2026';btn.disabled=true;try{const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:W3F_ACCESS_KEY,subject:'New Booking Request '+sanitize(document.getElementById('b_service').value),from_name:sanitize(document.getElementById('b_first').value)+' '+sanitize(document.getElementById('b_last').value),email:sanitize(document.getElementById('b_email').value),phone:sanitize(document.getElementById('b_phone').value),service:sanitize(document.getElementById('b_service').value),date:sanitize(document.getElementById('b_date').value),time:time,language:sanitize(document.getElementById('b_lang').value),notes:sanitize(document.getElementById('b_notes').value)||'None',botcheck:''})});const data=await res.json();if(data.success){status.textContent='Request sent. Alexandra will confirm within 24 hours.';status.className='form-status success';this.reset();document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('selected'));}else{throw new Error(data.message);}}catch(err){status.textContent='Something went wrong. Please try again.';status.className='form-status error';}finally{btn.textContent='Request Appointment';btn.disabled=false;}});
-document.getElementById('contactForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('contactStatus');const btn=this.querySelector('[type=submit]');const rl=isRateLimited('contact');if(rl){status.textContent='Please wait '+rl+' seconds.';status.className='form-status error';return;}setRateLimited('contact');btn.textContent='Sending\u2026';btn.disabled=true;try{const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:W3F_ACCESS_KEY,subject:'New Message '+sanitize(document.getElementById('c_subject').value),from_name:sanitize(document.getElementById('c_name').value),email:sanitize(document.getElementById('c_email').value),message:sanitize(document.getElementById('c_message').value),botcheck:''})});const data=await res.json();if(data.success){status.textContent='Message sent. Thank you!';status.className='form-status success';this.reset();}else{throw new Error(data.message);}}catch(err){status.textContent='Something went wrong. Please try again.';status.className='form-status error';}finally{btn.textContent='Send Message';btn.disabled=false;}});
-async function submitToWorker(email,fname){const res=await fetch('https://apbeautylab-newsletter.nicolashoyos777.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,fname})});return res.json();}
-document.getElementById('nlForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('nlStatus');const btn=this.querySelector('[type=submit]');const email=document.getElementById('nl_email').value.trim();const fname=document.getElementById('nl_name').value.trim();if(!isValidEmail(email)){status.textContent='Please enter a valid email.';return;}btn.textContent='Subscribing\u2026';btn.disabled=true;try{const data=await submitToWorker(email,fname);if(data.success){status.textContent='You\u2019re subscribed. Thank you!';this.reset();localStorage.setItem('ap_nl_seen','1');}else{throw new Error(data.error||'Failed');}}catch(err){status.textContent='Something went wrong. Please try again.';}finally{btn.textContent='Subscribe \u2192';btn.disabled=false;}});
-(function(){
-  if(localStorage.getItem('ap_nl_seen'))return;
-  const popup=document.getElementById('subscribePopup');
-  function openPopup(){popup.classList.add('open');popup.dataset.autoTriggered='1';document.body.style.overflow='hidden';}
-  function closePopup(){popup.classList.remove('open');document.body.style.overflow='';localStorage.setItem('ap_nl_seen','1');}
-  setTimeout(openPopup,30000);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&popup.classList.contains('open')){popup.classList.remove('open');document.body.style.overflow='';if(popup.dataset.autoTriggered)localStorage.setItem('ap_nl_seen','1');}});
-  document.getElementById('popupForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('popupStatus');const btn=this.querySelector('[type=submit]');const email=document.getElementById('p_email').value.trim();const fname=document.getElementById('p_name').value.trim();if(!isValidEmail(email)){status.textContent='Please enter a valid email.';return;}btn.textContent='Subscribing\u2026';btn.disabled=true;try{const data=await submitToWorker(email,fname);if(data.success){status.textContent='You\u2019re in. Thank you!';status.className='popup-status success';localStorage.setItem('ap_nl_seen','1');setTimeout(closePopup,2000);}else{throw new Error(data.error||'Failed');}}catch(err){status.textContent='Something went wrong. Please try again.';}finally{btn.textContent='Subscribe';btn.disabled=false;}});
-})();
-// ── POPUP CLOSE — works for both auto trigger and nav/hamburger trigger ──
-document.getElementById('popupClose').addEventListener('click', function() {
-  const popup = document.getElementById('subscribePopup');
-  popup.classList.remove('open');
-  document.body.style.overflow = '';
-  // Only set localStorage if user actually interacted (not just opened from nav)
-  // We track this with a flag on the popup element
-  if (popup.dataset.autoTriggered) {
-    localStorage.setItem('ap_nl_seen', '1');
-  }
-});
-document.getElementById('subscribePopup').addEventListener('click', function(e) {
-  if (e.target === this) {
-    this.classList.remove('open');
-    document.body.style.overflow = '';
-    if (this.dataset.autoTriggered) localStorage.setItem('ap_nl_seen', '1');
-  }
-});
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  const email = params.get('unsubscribe');
-  if (!email) return;
-
-  const overlay = document.createElement('div');
-  overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:2rem;';
-  overlay.innerHTML = '<div style="text-align:center;max-width:420px;"><h2 style="font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--ink);margin-bottom:1.2rem;">One moment...</h2><p style="font-size:.84rem;color:var(--taupe);line-height:1.85;" id="unsubMsg">We are processing your request.</p><a href="https://theapbeautylab.com" id="unsubBack" style="display:none;margin-top:2rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bark);text-decoration:none;border-bottom:1px solid var(--bark);padding-bottom:2px;">Back to the site</a></div>';
-  document.body.appendChild(overlay);
-
-  fetch('https://apbeautylab-newsletter.nicolashoyos777.workers.dev', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action: 'unsubscribe', email: decodeURIComponent(email) })
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.success) {
-      document.getElementById('unsubMsg').textContent = 'You have been removed from the AP Beauty Lab mailing list. We are sorry to see you go.';
-    } else {
-      document.getElementById('unsubMsg').textContent = 'Something went wrong. Please reply to any newsletter email to unsubscribe manually.';
-    }
-    document.getElementById('unsubBack').style.display = 'inline-block';
-  })
-  .catch(() => {
-    document.getElementById('unsubMsg').textContent = 'Something went wrong. Please reply to any newsletter email to unsubscribe manually.';
-    document.getElementById('unsubBack').style.display = 'inline-block';
-  });
-})();
 function openModal(id){const el=document.getElementById('modal-'+id);if(el){el.classList.add('open');document.body.style.overflow='hidden';el.scrollTop=0;}}
 function closeModal(id){const el=document.getElementById('modal-'+id);if(el){el.classList.remove('open');document.body.style.overflow='';}}
 document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',function(e){if(e.target===this){this.classList.remove('open');document.body.style.overflow='';}}));
