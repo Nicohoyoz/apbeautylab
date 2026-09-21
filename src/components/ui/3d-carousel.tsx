@@ -128,7 +128,7 @@ const Carousel = memo(
                 alt={card.alt}
                 layoutId={`img-${card.src}`}
                 /* 3:4 keeps faces and before/after pairs intact */
-                className="pointer-events-none w-full aspect-[3/4] object-cover object-top shadow-[0_18px_40px_-18px_rgba(26,20,16,0.55)]"
+                className="pointer-events-none w-full aspect-[3/4] object-cover object-top shadow-[0_18px_40px_-18px_rgba(61,48,39,0.55)]"
                 initial={{ filter: "blur(4px)" }}
                 layout="position"
                 animate={{ filter: "blur(0px)" }}
@@ -184,7 +184,7 @@ function ThreeDPhotoCarousel({ images }: { images: CarouselImage[] }) {
             role="dialog"
             aria-modal="true"
             aria-label={activeImg.alt}
-            className="fixed inset-0 z-[120] flex items-center justify-center bg-ink/70 p-6 backdrop-blur-sm md:p-16"
+            className="fixed inset-0 z-[120] flex items-center justify-center bg-foreground/70 p-6 backdrop-blur-sm md:p-16"
             style={{ willChange: "opacity" }}
             transition={transitionOverlay}
           >

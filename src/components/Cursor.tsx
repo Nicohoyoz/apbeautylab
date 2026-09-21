@@ -32,12 +32,12 @@ export function Cursor() {
     const grow = () => {
       dot.style.transform = "translate(-50%,-50%) scale(2)"
       ring.style.transform = "translate(-50%,-50%) scale(1.5)"
-      ring.style.borderColor = "rgba(107,93,82,.5)"
+      ring.style.borderColor = "rgba(166,124,82,.55)"
     }
     const shrink = () => {
       dot.style.transform = "translate(-50%,-50%)"
       ring.style.transform = "translate(-50%,-50%)"
-      ring.style.borderColor = "rgba(26,20,16,.35)"
+      ring.style.borderColor = "rgba(61,48,39,.35)"
     }
     document.addEventListener("mousemove", onMove, { passive: true })
     document.addEventListener("mouseover", (e) => {
@@ -57,11 +57,11 @@ export function Cursor() {
     <>
       <div
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[9999] h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink opacity-0 transition-transform duration-100 max-[1024px]:hidden"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground opacity-0 transition-transform duration-100 max-[1024px]:hidden"
       />
       <div
         ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[9998] h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/35 opacity-0 transition-[transform,border-color] duration-200 max-[1024px]:hidden"
+        className="pointer-events-none fixed left-0 top-0 z-[9998] h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full border border-foreground/35 opacity-0 transition-[transform,border-color] duration-200 max-[1024px]:hidden"
       />
     </>
   )

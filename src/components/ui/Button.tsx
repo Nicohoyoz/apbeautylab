@@ -41,37 +41,38 @@ const VARIANTS: Record<
   { surface: string; edge: string; rotor: string | null }
 > = {
   primary: {
-    surface: "bg-ink text-paper hover:bg-bark",
-    edge: "bg-warm",
-    rotor: "var(--color-paper)",
+    surface: "bg-primary text-primary-foreground hover:bg-chart-5",
+    edge: "bg-border",
+    rotor: "var(--color-primary-foreground)",
   },
   secondary: {
-    surface: "bg-warm text-ink hover:bg-stone/50",
-    edge: "bg-stone/40",
-    rotor: "var(--color-bark)",
+    surface: "bg-secondary text-secondary-foreground hover:bg-accent",
+    edge: "bg-border",
+    rotor: "var(--color-primary)",
   },
   outline: {
-    surface: "bg-paper text-ink hover:bg-off",
-    edge: "bg-stone/70",
-    rotor: "var(--color-ink)",
+    surface: "bg-card text-foreground hover:bg-muted",
+    edge: "bg-ring",
+    rotor: "var(--color-foreground)",
   },
   // Lowest priority: no rotating edge at all, per the brief.
   ghost: {
-    surface: "bg-transparent text-taupe hover:text-ink",
+    surface: "bg-transparent text-muted-foreground hover:text-foreground",
     edge: "bg-transparent",
     rotor: null,
   },
   danger: {
-    surface: "bg-clay text-paper hover:bg-clay/90",
-    edge: "bg-clay/40",
-    rotor: "var(--color-paper)",
+    surface: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+    edge: "bg-destructive/40",
+    rotor: "var(--color-destructive-foreground)",
   },
 }
 
+/* Type is the overline step across all sizes; only the box changes. */
 const SIZES: Record<ButtonSize, string> = {
-  sm: "gap-1.5 px-4 py-2 text-[0.55rem] tracking-[0.2em]",
-  md: "gap-2 px-6 py-3 text-[0.6rem] tracking-[0.24em]",
-  lg: "gap-2.5 px-9 py-4 text-[0.65rem] tracking-[0.26em]",
+  sm: "gap-1.5 px-4 py-2",
+  md: "gap-2 px-6 py-3",
+  lg: "gap-2.5 px-8 py-4",
 }
 
 function Spinner() {
@@ -110,10 +111,10 @@ export function Button(props: ButtonProps | AnchorProps) {
     loading || (!isAnchor && Boolean((rest as ButtonHTMLAttributes<HTMLButtonElement>).disabled))
 
   const shell = cn(
-    "group relative isolate inline-flex select-none overflow-hidden rounded-[3px] p-px align-middle",
+    "group relative isolate inline-flex select-none overflow-hidden rounded-[var(--radius)] p-px align-middle",
     "transition-[opacity,box-shadow] duration-300",
     "focus-within:outline-none",
-    variant === "ghost" ? "shadow-none" : "shadow-[0_2px_10px_-6px_rgba(26,20,16,0.5)]",
+    variant === "ghost" ? "shadow-none" : "shadow-[0_2px_10px_-6px_rgba(61,48,39,0.5)]",
     isDisabled && "pointer-events-none opacity-45",
     fullWidth ? "flex w-full" : "inline-flex",
     v.edge,
@@ -121,10 +122,10 @@ export function Button(props: ButtonProps | AnchorProps) {
   )
 
   const surface = cn(
-    "relative z-10 inline-flex w-full items-center justify-center whitespace-nowrap rounded-[2px]",
-    "font-sans uppercase no-underline",
-    "transition-[background-color,color,letter-spacing] duration-300",
-    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
+    "relative z-10 inline-flex w-full items-center justify-center whitespace-nowrap rounded-[calc(var(--radius)-1px)]",
+    "font-sans text-[0.75rem] font-medium tracking-[0.08em] uppercase no-underline",
+    "transition-[background-color,color] duration-300",
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
     "active:translate-y-px",
     SIZES[size],
     v.surface
@@ -135,7 +136,7 @@ export function Button(props: ButtonProps | AnchorProps) {
       {v.rotor && (
         <span
           aria-hidden="true"
-          className="btn-rotor pointer-events-none absolute inset-0 rounded-[3px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 data-[always=true]:opacity-90"
+          className="btn-rotor pointer-events-none absolute inset-0 rounded-[var(--radius)] opacity-0 transition-opacity duration-500 group-hover:opacity-100 data-[always=true]:opacity-90"
           data-always={variant === "primary" || variant === "danger"}
           style={{ "--btn-rotor-hi": v.rotor } as CSSProperties}
         />

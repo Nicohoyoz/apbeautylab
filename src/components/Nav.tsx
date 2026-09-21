@@ -26,15 +26,15 @@ export function Nav() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-[100] flex flex-col border-b border-stone/25 bg-paper/95 backdrop-blur-xl transition-transform duration-[400ms] ${
+        className={`fixed inset-x-0 top-0 z-[100] flex flex-col border-b border-border bg-background/95 backdrop-blur-xl transition-transform duration-[400ms] ${
           hidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <div className="relative flex items-center justify-between border-b border-stone/15 px-6 py-5 lg:px-12">
+        <div className="relative flex items-center justify-between border-b border-border/60 px-6 py-5 lg:px-12">
           <div className="w-[120px]" />
           <a
             href="#home"
-            className="nav-logo absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5 whitespace-nowrap font-serif text-[0.72rem] font-bold uppercase tracking-[0.08em] text-ink no-underline sm:text-[0.8rem] lg:text-[1.2rem] lg:tracking-[0.1em]"
+            className="nav-logo absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5 whitespace-nowrap font-display text-[0.8rem] font-extrabold uppercase tracking-[-0.03em] text-foreground no-underline sm:text-[0.95rem] lg:text-[1.25rem]"
           >
             <img
               src="/images/logo.png"
@@ -55,33 +55,33 @@ export function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="group relative whitespace-nowrap text-[0.62rem] uppercase tracking-[0.2em] text-taupe no-underline transition-colors hover:text-ink"
+                className="type-overline group relative whitespace-nowrap text-muted-foreground no-underline transition-colors hover:text-foreground"
               >
                 {l.label}
-                <span className="absolute -bottom-0.5 left-0 right-0 h-px origin-left scale-x-0 bg-ink transition-transform duration-300 group-hover:scale-x-100" />
+                <span className="absolute -bottom-0.5 left-0 right-0 h-px origin-left scale-x-0 bg-foreground transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center justify-center gap-2 border-t border-stone/10 py-2">
+        <div className="flex items-center justify-center gap-2 border-t border-border/40 py-2">
           <a
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Divine Daughters Studio on Instagram"
-            className="flex items-center gap-2 text-[0.58rem] uppercase tracking-[0.18em] text-taupe no-underline transition-colors hover:text-ink"
+            className="type-overline flex items-center gap-2 text-muted-foreground no-underline transition-colors hover:text-foreground"
           >
             <InstagramIcon className="h-3 w-3" />
             @divinedaugthers.studio
           </a>
-          <span className="mx-2 text-[0.7rem] text-warm">&middot;</span>
+          <span className="type-small mx-2 text-border">&middot;</span>
           <a
             href={TIKTOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Divine Daughters Studio on TikTok"
-            className="flex items-center gap-2 text-[0.58rem] uppercase tracking-[0.18em] text-taupe no-underline transition-colors hover:text-ink"
+            className="type-overline flex items-center gap-2 text-muted-foreground no-underline transition-colors hover:text-foreground"
           >
             <TikTokIcon className="h-3 w-3" />
             TikTok
@@ -95,13 +95,13 @@ export function Nav() {
         onClick={() => setMenuOpen((v) => !v)}
         className="fixed right-6 top-4 z-[200] flex flex-col gap-[5px] border-none bg-transparent p-1.5 lg:hidden"
       >
-        <span className={`block h-px w-[22px] bg-ink transition-transform duration-300 ${menuOpen ? "translate-y-[6px] rotate-45" : ""}`} />
-        <span className={`block h-px w-[22px] bg-ink transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`} />
-        <span className={`block h-px w-[22px] bg-ink transition-transform duration-300 ${menuOpen ? "-translate-y-[6px] -rotate-45" : ""}`} />
+        <span className={`block h-px w-[22px] bg-foreground transition-transform duration-300 ${menuOpen ? "translate-y-[6px] rotate-45" : ""}`} />
+        <span className={`block h-px w-[22px] bg-foreground transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+        <span className={`block h-px w-[22px] bg-foreground transition-transform duration-300 ${menuOpen ? "-translate-y-[6px] -rotate-45" : ""}`} />
       </button>
 
       <div
-        className={`fixed inset-0 z-[150] flex-col items-center justify-center gap-10 bg-paper transition-all duration-300 ${
+        className={`fixed inset-0 z-[150] flex-col items-center justify-center gap-10 bg-background transition-all duration-300 ${
           menuOpen ? "flex opacity-100" : "pointer-events-none hidden opacity-0"
         }`}
       >
@@ -110,7 +110,7 @@ export function Nav() {
             key={l.href}
             href={l.href}
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[clamp(2rem,7vw,3rem)] text-ink no-underline transition-colors hover:text-bark"
+            className="type-h1 text-foreground no-underline transition-colors hover:text-primary"
           >
             {l.label}
           </a>

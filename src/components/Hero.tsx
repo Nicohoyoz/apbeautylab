@@ -98,7 +98,7 @@ export function Hero() {
           Beauty Studio &nbsp;&middot;&nbsp; Belleville, NJ
         </span>
 
-        <h1 className="hero-title mb-8 font-serif text-[2.8rem] leading-[1.06] font-medium tracking-[-0.015em] text-ink lg:text-[clamp(2.9rem,4.7vw,5.9rem)]">
+        <h1 className="hero-title type-hero mb-8 text-[2.75rem] text-foreground sm:text-[3.5rem] lg:text-[4.5rem]">
           <span className="line">
             <span className="word">Skin</span> <span className="word">&amp;</span>{" "}
             <span className="word">body</span>
@@ -111,7 +111,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="hero-sub hero-anim mb-14 max-w-full text-[0.84rem] leading-[1.9] tracking-[0.02em] text-taupe lg:max-w-[360px] lg:text-[0.88rem]">
+        <p className="hero-sub hero-anim type-body-lg mb-14 max-w-full text-muted-foreground lg:max-w-[400px]">
           Divine Daughters Studio is Alexandra and Steffany &mdash; a licensed
           esthetician and a licensed massage therapist, dedicated to helping you
           look and feel your absolute best.
@@ -127,7 +127,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative min-h-[78vw] overflow-hidden bg-warm lg:min-h-0">
+      <div className="relative min-h-[78vw] overflow-hidden bg-secondary lg:min-h-0">
         <div
           ref={stageRef}
           className="absolute inset-0 grid place-items-center"

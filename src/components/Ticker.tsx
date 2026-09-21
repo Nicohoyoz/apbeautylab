@@ -12,15 +12,15 @@ export function Ticker() {
   return (
     <div
       aria-hidden="true"
-      className="ticker-wrap overflow-hidden whitespace-nowrap bg-ink py-[0.85rem]"
+      className="ticker-wrap overflow-hidden whitespace-nowrap bg-foreground py-[0.85rem]"
     >
       <div className="ticker-track inline-flex">
         {run.map((item, i) => (
           <span key={`${item}-${i}`} className="flex shrink-0 items-center">
-            <span className="px-8 font-serif text-[0.9rem] italic text-paper/70">
+            <span className="type-body-lg px-8 font-serif italic text-primary-foreground/70">
               {item}
             </span>
-            <span className="font-serif text-[0.9rem] text-stone/40">&middot;</span>
+            <span className="type-body-lg font-serif text-muted-foreground/40">&middot;</span>
           </span>
         ))}
       </div>

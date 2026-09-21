@@ -6,22 +6,22 @@ import { cn } from "@/lib/utils"
 
 function ServiceRow({ item }: { item: Service }) {
   return (
-    <div className="flex items-baseline gap-4 border-b border-warm py-4 transition-transform duration-300 ease-arrival last:border-b-0 hover:translate-x-[6px]">
+    <div className="flex items-baseline gap-4 border-b border-border py-4 transition-transform duration-300 ease-arrival last:border-b-0 hover:translate-x-[6px]">
       <div className="min-w-0">
-        <span className="text-[0.84rem] font-medium tracking-[0.02em] text-ink">
+        <span className="type-body font-medium text-foreground">
           {item.name}
         </span>
         {item.note && (
-          <span className="mt-0.5 block text-[0.7rem] italic leading-relaxed text-stone">
+          <span className="type-small mt-0.5 block italic text-muted-foreground">
             {item.note}
           </span>
         )}
-        <span className="mt-2 block w-fit border border-warm px-2 py-[0.16rem] text-[0.52rem] uppercase tracking-[0.18em] text-stone">
+        <span className="type-overline mt-2 block w-fit rounded-[calc(var(--radius)-2px)] border border-border px-2 py-[0.16rem] text-muted-foreground">
           {item.by}
         </span>
       </div>
-      <span aria-hidden="true" className="mb-1 flex-1 border-b border-dotted border-stone" />
-      <span className="whitespace-nowrap font-serif text-[1.08rem] font-medium text-bark">
+      <span aria-hidden="true" className="mb-1 flex-1 border-b border-dotted border-border" />
+      <span className="type-h3 whitespace-nowrap text-primary">
         {item.price}
       </span>
     </div>
@@ -42,7 +42,7 @@ export function Services() {
   const mid = openTab ? Math.ceil(openTab.items.length / 2) : 0
 
   return (
-    <section id="services" className="bg-paper px-6 py-24 lg:px-24 lg:py-32">
+    <section id="services" className="bg-background px-6 py-24 lg:px-24 lg:py-32">
       <div className="reveal mb-12 grid grid-cols-1 items-end gap-6 lg:mb-16 lg:grid-cols-2 lg:gap-16">
         <div>
           <span className="eyebrow">What we offer</span>
@@ -52,7 +52,7 @@ export function Services() {
             Pricing
           </h2>
         </div>
-        <p className="self-end text-[0.84rem] leading-[1.9] tracking-[0.02em] text-taupe">
+        <p className="type-body self-end text-muted-foreground">
           Every service is tailored to your skin, your goals, and your comfort.
           Each treatment is marked with the provider who offers it &mdash;
           browse, then book with Alexandra or Steffany.
@@ -61,7 +61,7 @@ export function Services() {
 
       <div className="reveal">
         {/* Folder tabs. Horizontally scrollable on narrow screens. */}
-        <div className="flex overflow-x-auto border-b border-warm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex overflow-x-auto border-b border-border [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SERVICE_TABS.map((tab) => {
             const isOpen = tab.id === openId
             return (
@@ -74,15 +74,15 @@ export function Services() {
                 onClick={() => setOpenId(isOpen ? null : tab.id)}
                 className={cn(
                   "relative -mb-px flex shrink-0 items-center gap-2 whitespace-nowrap border border-b-0 px-5 py-3.5",
-                  "text-[0.6rem] uppercase tracking-[0.22em] transition-colors duration-300",
-                  "focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink",
+                  "type-overline transition-colors duration-300",
+                  "focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring",
                   isOpen
-                    ? "z-10 border-warm bg-off text-ink"
-                    : "border-transparent text-stone hover:text-bark"
+                    ? "z-10 border-border bg-muted text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-primary"
                 )}
               >
                 {tab.label}
-                <span className="text-[0.52rem] text-stone">{tab.items.length}</span>
+                <span className="type-small text-muted-foreground">{tab.items.length}</span>
                 {/* Plus that becomes a minus while open. */}
                 <span aria-hidden="true" className="relative ml-0.5 block h-2 w-2">
                   <span className="absolute left-0 top-1/2 h-px w-2 -translate-y-1/2 bg-current" />
@@ -113,7 +113,7 @@ export function Services() {
                   ? { duration: 0 }
                   : { duration: 0.42, ease: [0.16, 1, 0.3, 1] }
               }
-              className="overflow-hidden border-x border-b border-warm bg-off"
+              className="overflow-hidden border-x border-b border-border bg-muted"
             >
               <div className="grid grid-cols-1 gap-0 px-6 py-6 lg:grid-cols-2 lg:px-8 lg:py-8">
                 <div className="lg:pr-8">
@@ -121,7 +121,7 @@ export function Services() {
                     <ServiceRow key={item.name} item={item} />
                   ))}
                 </div>
-                <div className="lg:border-l lg:border-warm lg:pl-8">
+                <div className="lg:border-l lg:border-border lg:pl-8">
                   {openTab.items.slice(mid).map((item) => (
                     <ServiceRow key={item.name} item={item} />
                   ))}
