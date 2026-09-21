@@ -176,3 +176,30 @@ html.motion .reveal-right.visible,
     animation: none;
   }
 }
+
+/* ---- Ticker marquee ----
+   The track carries the list twice, so translating it -50% lands exactly on
+   the duplicate and the loop is seamless. Hover pauses it; the pre-migration
+   build did this from JS, but :hover is enough. */
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker 30s linear infinite;
+}
+
+.ticker-wrap:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}

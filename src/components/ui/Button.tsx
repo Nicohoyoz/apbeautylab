@@ -19,6 +19,8 @@ interface BaseProps {
   size?: ButtonSize
   loading?: boolean
   fullWidth?: boolean
+  /** GSAP pull toward the cursor. Defaults on for primary/danger, like the rotor. */
+  magnetic?: boolean
   className?: string
   children?: ReactNode
 }
@@ -95,12 +97,14 @@ export function Button(props: ButtonProps | AnchorProps) {
     size = "md",
     loading = false,
     fullWidth = false,
+    magnetic,
     className,
     children,
     ...rest
   } = props
 
   const v = VARIANTS[variant]
+  const isMagnetic = magnetic ?? (variant === "primary" || variant === "danger")
   const isAnchor = typeof (props as AnchorProps).href === "string"
   const isDisabled =
     loading || (!isAnchor && Boolean((rest as ButtonHTMLAttributes<HTMLButtonElement>).disabled))
@@ -157,6 +161,7 @@ export function Button(props: ButtonProps | AnchorProps) {
       <a
         {...anchorRest}
         className={shell}
+        data-magnetic={isMagnetic && !isDisabled ? "" : undefined}
         aria-busy={loading || undefined}
         aria-disabled={isDisabled || undefined}
         tabIndex={isDisabled ? -1 : anchorRest.tabIndex}
@@ -172,6 +177,7 @@ export function Button(props: ButtonProps | AnchorProps) {
       type={buttonRest.type ?? "button"}
       {...buttonRest}
       className={shell}
+      data-magnetic={isMagnetic && !isDisabled ? "" : undefined}
       disabled={isDisabled}
       aria-busy={loading || undefined}
     >

@@ -2,7 +2,13 @@ import { Cursor } from "@/components/Cursor"
 import { Nav } from "@/components/Nav"
 import { Services } from "@/components/Services"
 import { Gallery } from "@/components/Gallery"
-import { useMotionGate, useReveals, useSmoothScroll } from "@/hooks/useMotion"
+import { Ticker } from "@/components/Ticker"
+import {
+  useMagnetic,
+  useMotionGate,
+  useReveals,
+  useSmoothScroll,
+} from "@/hooks/useMotion"
 
 /**
  * App shell. Services and gallery are migrated; the remaining sections
@@ -14,6 +20,7 @@ export default function App() {
   useSmoothScroll()
   useMotionGate()
   useReveals()
+  useMagnetic("[data-magnetic]")
 
   return (
     <>
@@ -22,6 +29,7 @@ export default function App() {
       {/* Nav is fixed (~90px mobile / ~140px desktop); this stands in for the
           hero's own top spacing until #home is migrated. */}
       <main className="lg:pt-10">
+        <Ticker />
         <Services />
         <Gallery />
       </main>
