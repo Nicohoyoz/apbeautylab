@@ -21,7 +21,7 @@ export function Gallery() {
       <div className="reveal">
         <ThreeDPhotoCarousel images={GALLERY_IMAGES} />
         <p className="type-overline mt-6 text-center text-muted-foreground">
-          Drag to explore &middot; select an image to enlarge
+          Select an image to enlarge &middot; drag to explore
         </p>
       </div>
     </section>
