@@ -1,19 +1,20 @@
-# AP Beauty Lab
+# Divine Daughters Studio
 
-Website for Alexandra Parrales — licensed esthetician based in Garfield, NJ.
+Website for Divine Daughters Studio — a two-provider beauty studio in Belleville, NJ.
+Alexandra Parrales (licensed esthetician) and Steffany Parrales (licensed massage
+therapist / lash artist).
 
 ## Stack
 - Pure HTML / CSS / JavaScript — no framework, no build step
-- EmailJS — booking requests and contact form emails
-- Brevo — newsletter subscriber list
+- Goldie — online booking (per-provider deep links)
 
-## Pages
+## Sections
 1. Home
-2. Services & Pricing
-3. Booking (custom form via EmailJS)
+2. Services & Pricing (8 tabs, provider-tagged)
+3. Booking (Goldie — book with Alexandra or Steffany)
 4. About
 5. Gallery
 6. Contact
 
 ## Deployment
-Recommended: Netlify (drag and drop the folder)
+GitHub Pages — custom domain set via `CNAME` (divinedaughtersstudio.com)

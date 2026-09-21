@@ -7,16 +7,18 @@
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-<meta property="og:title" content="The AP Beauty Lab — Garfield, NJ">
-<meta property="og:description" content="Licensed esthetician in Garfield, NJ. Facials, Lymphatic Drainage, Lash & Brow, Waxing.">
-<meta property="og:image" content="https://theapbeautylab.com/images/og-image.jpg">
+<meta property="og:title" content="Divine Daughters Studio — Belleville, NJ">
+<meta property="og:description" content="Beauty studio in Belleville, NJ. Facials, Lash Extensions, Lymphatic Drainage, Brows, Waxing &amp; Permanent Makeup.">
+<meta property="og:image" content="https://divinedaughtersstudio.com/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://theapbeautylab.com">
+<meta property="og:url" content="https://divinedaughtersstudio.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://theapbeautylab.com/images/og-image.jpg">
-<title>The AP Beauty Lab — Garfield, NJ</title>
+<meta name="twitter:title" content="Divine Daughters Studio — Belleville, NJ">
+<meta name="twitter:description" content="Beauty studio in Belleville, NJ. Facials, Lash Extensions, Lymphatic Drainage, Brows, Waxing &amp; Permanent Makeup.">
+<meta name="twitter:image" content="https://divinedaughtersstudio.com/images/og-image.jpg">
+<title>Divine Daughters Studio — Belleville, NJ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Didact+Gothic&family=Tenor+Sans&display=swap" rel="stylesheet">
@@ -32,7 +34,8 @@ body:hover .cursor-dot{opacity:1;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;flex-direction:column;background:rgba(249,246,241,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(196,184,168,.25);transition:transform .4s cubic-bezier(.25,.46,.45,.94);}
 nav.hidden{transform:translateY(-100%);}
 .nav-row1{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;border-bottom:1px solid rgba(196,184,168,.15);position:relative;}
-.nav-logo{font-family:var(--serif);font-size:1.2rem;font-weight:700;letter-spacing:.1em;color:var(--ink);text-decoration:none;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;text-transform:uppercase;}
+.nav-logo{font-family:var(--serif);font-size:1.2rem;font-weight:700;letter-spacing:.1em;color:var(--ink);text-decoration:none;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;text-transform:uppercase;display:flex;align-items:center;gap:.65rem;}
+.nav-logo img{height:30px;width:auto;display:block;flex-shrink:0;}
 .nav-row1-right{margin-left:auto;display:flex;align-items:center;gap:1.5rem;}
 .nav-row2{display:flex;align-items:center;justify-content:center;gap:2.5rem;padding:.7rem 3rem;list-style:none;}
 .nav-row2 a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);text-decoration:none;transition:color .25s;position:relative;white-space:nowrap;}
@@ -91,7 +94,7 @@ section{padding:8rem 6rem;}
 #services{background:var(--paper);}
 .services-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;}
 .services-intro{font-size:.84rem;color:var(--taupe);line-height:1.9;letter-spacing:.02em;align-self:end;}
-.services-tabs{display:flex;gap:0;border-bottom:1px solid var(--warm);margin-bottom:3rem;}
+.services-tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--warm);margin-bottom:3rem;}
 .tab-btn{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stone);background:none;border:none;border-bottom:2px solid transparent;padding:.8rem 1.8rem .8rem 0;cursor:none;transition:color .25s,border-color .25s;margin-bottom:-1px;}
 .tab-btn.active{color:var(--ink);border-bottom-color:var(--ink);}
 .tab-btn:hover{color:var(--bark);}
@@ -107,6 +110,7 @@ section{padding:8rem 6rem;}
 .svc-name{font-size:.84rem;color:var(--ink);letter-spacing:.02em;font-weight:500;}
 .svc-note{font-size:.7rem;color:var(--stone);font-style:italic;display:block;margin-top:.15rem;}
 .svc-price{font-family:var(--serif);font-size:1.08rem;font-weight:500;color:var(--bark);white-space:nowrap;}
+.svc-by{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);border:1px solid var(--warm);padding:.16rem .5rem;margin-top:.5rem;display:block;width:fit-content;}
 #booking{background:var(--off);}
 .booking-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:8rem;align-items:start;}
 .booking-info p{font-size:.84rem;color:var(--taupe);line-height:1.9;margin-top:1.5rem;letter-spacing:.02em;}
@@ -154,6 +158,9 @@ section{padding:8rem 6rem;}
 .location-days{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:.8rem;}
 .location-addr{font-size:.84rem;color:var(--taupe);line-height:1.7;letter-spacing:.02em;}
 .location-note{font-size:.75rem;color:var(--stone);font-style:italic;margin-top:1rem;line-height:1.65;}
+.location-addr a{color:var(--bark);text-decoration:none;border-bottom:1px solid var(--stone);padding-bottom:1px;transition:color .25s,border-color .25s;}
+.location-addr a:hover{color:var(--ink);border-color:var(--ink);}
+.btn-stack{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.8rem;}
 .contact-form h3{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--ink);margin-bottom:1.8rem;}
 footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;}
 .footer-logo{font-family:var(--serif);font-size:1.1rem;color:var(--paper);letter-spacing:.06em;}
@@ -197,11 +204,14 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 .stagger.visible>*:nth-child(4){opacity:1;transform:translateY(0);transition-delay:.24s;}
 .stagger.visible>*:nth-child(5){opacity:1;transform:translateY(0);transition-delay:.32s;}
 .stagger.visible>*:nth-child(6){opacity:1;transform:translateY(0);transition-delay:.4s;}
+.stagger.visible>*:nth-child(7){opacity:1;transform:translateY(0);transition-delay:.48s;}
+.stagger.visible>*:nth-child(8){opacity:1;transform:translateY(0);transition-delay:.56s;}
 @media(max-width:960px){
   nav{padding:1rem 1.5rem;flex-direction:column;}
   .nav-row1{padding:1rem 1.5rem;width:100%;}
   .nav-row2{display:none;}
-  .nav-logo{font-size:1rem;}
+  .nav-logo{font-size:.8rem;gap:.5rem;}
+  .nav-logo img{height:22px;}
   .nav-book{display:none;}
   .hamburger{display:flex;}
   .nav-instagram{padding:.5rem 1.5rem;justify-content:flex-start;}
@@ -235,6 +245,8 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   .footer-legal{padding:1rem 1.5rem 1.5rem;gap:1rem;}
 }
 @media(max-width:600px){
+  .nav-logo{font-size:.72rem;letter-spacing:.08em;}
+  .nav-logo img{display:none;}
   .hero-title{font-size:2.2rem;}
   .gallery-item{flex:0 0 220px;height:300px;}
   .about-stats{flex-direction:column;gap:1.2rem;}
@@ -251,7 +263,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 <nav>
   <div class="nav-row1">
     <div style="width:120px;"></div>
-    <a href="#home" class="nav-logo">The AP Beauty Lab</a>
+    <a href="#home" class="nav-logo"><img src="images/logo.png" alt="" onerror="this.remove()">Divine Daughters Studio</a>
     <div class="nav-row1-right">
       <a href="#booking" class="nav-book">Book a Session</a>
     </div>
@@ -266,14 +278,14 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <li><a href="#newsletter">Newsletter</a></li>
   </ul>
   <div class="nav-instagram">
-    <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" aria-label="AP Beauty Lab on Instagram">
+    <a href="https://www.instagram.com/divinedaugthers.studio" target="_blank" rel="noopener noreferrer" aria-label="Divine Daughters Studio on Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      @alex.esthetics_
+      @divinedaugthers.studio
     </a>
     <span style="color:var(--warm);font-size:.7rem;margin:0 .6rem;">&middot;</span>
-    <a href="https://www.instagram.com/ale.nicole14?igsh=MWVybjlzcGI5ZGtrbg==" target="_blank" rel="noopener noreferrer" aria-label="Alexandra's personal Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      @ale.nicole14
+    <a href="https://www.tiktok.com/@divinedaugthers.studio" target="_blank" rel="noopener noreferrer" aria-label="Divine Daughters Studio on TikTok">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.6a4.1 4.1 0 1 1-3.3-4.02"/><path d="M14 3.2c.45 2.7 2.5 4.6 5.2 4.8"/></svg>
+      TikTok
     </a>
   </div>
 </nav>
@@ -290,100 +302,168 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 </div>
 <section id="home">
   <div class="hero-left">
-    <span class="hero-eyebrow reveal">Licensed Esthetician &nbsp;&middot;&nbsp; Garfield, NJ</span>
+    <span class="hero-eyebrow reveal">Beauty Studio &nbsp;&middot;&nbsp; Belleville, NJ</span>
     <h1 class="hero-title reveal" style="transition-delay:.1s">Skin &amp; body<br>care, <em>refined</em></h1>
-    <p class="hero-sub reveal" style="transition-delay:.2s">Hi, I'm Alexandra. A bilingual licensed esthetician with 3 years of experience dedicated to helping you look and feel your absolute best.</p>
+    <p class="hero-sub reveal" style="transition-delay:.2s">Divine Daughters Studio is Alexandra and Steffany &mdash; a licensed esthetician and a licensed massage therapist, dedicated to helping you look and feel your absolute best.</p>
     <div class="hero-cta reveal" style="transition-delay:.3s">
       <a href="#booking" class="btn-dark">Book a Session</a>
       <a href="#services" class="btn-text">View Services</a>
     </div>
   </div>
   <div class="hero-right reveal-right">
-    <img src="images/hero.jpg" alt="AP Beauty Lab" class="hero-img" id="heroImg">
+    <img src="images/hero.jpg" alt="Divine Daughters Studio" class="hero-img" id="heroImg">
   </div>
 </section>
 <div class="ticker-wrap">
   <div class="ticker-track">
     <span class="ticker-item">Signature Facial</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Lash Extensions</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Lymphatic Drainage</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Microneedling</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">Chemical Peel</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">Lash Lift</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Korean Lash Lift</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Brow Lamination</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">Microdermabrasion</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">LED Therapy</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Permanent Makeup</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Waxing</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Chemical Peel</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Signature Facial</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Lash Extensions</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Lymphatic Drainage</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Microneedling</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">Chemical Peel</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">Lash Lift</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Korean Lash Lift</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Brow Lamination</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">Microdermabrasion</span><span class="ticker-item ticker-sep">&middot;</span>
-    <span class="ticker-item">LED Therapy</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Permanent Makeup</span><span class="ticker-item ticker-sep">&middot;</span>
     <span class="ticker-item">Waxing</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Chemical Peel</span><span class="ticker-item ticker-sep">&middot;</span>
   </div>
 </div>
 <section id="services">
   <div class="services-head reveal">
     <div>
-      <span class="eyebrow">What I offer</span>
+      <span class="eyebrow">What we offer</span>
       <h2 class="section-title">Services &amp;<br>Pricing</h2>
     </div>
-    <p class="services-intro">Every service is tailored to your skin, your goals, and your comfort. Browse and book the treatment that calls to you.</p>
+    <p class="services-intro">Every service is tailored to your skin, your goals, and your comfort. Each treatment is marked with the provider who offers it &mdash; browse, then book with Alexandra or Steffany.</p>
   </div>
   <div class="services-tabs stagger reveal">
     <button class="tab-btn active" onclick="showTab('facials',this)">Facials</button>
+    <button class="tab-btn" onclick="showTab('brows',this)">Brows</button>
+    <button class="tab-btn" onclick="showTab('lashlift',this)">Lash &amp; Lifting</button>
+    <button class="tab-btn" onclick="showTab('lashext',this)">Lash Extensions</button>
+    <button class="tab-btn" onclick="showTab('refills',this)">Lash Refills</button>
     <button class="tab-btn" onclick="showTab('lymph',this)">Lymphatic</button>
-    <button class="tab-btn" onclick="showTab('lash',this)">Lash &amp; Brow</button>
     <button class="tab-btn" onclick="showTab('wax',this)">Waxing</button>
+    <button class="tab-btn" onclick="showTab('pmu',this)">PMU &amp; Packages</button>
   </div>
   <div id="tab-facials" class="services-panel active reveal">
     <div class="services-grid">
       <div>
-        <div class="service-row"><div><span class="svc-name">Signature Facial</span><span class="svc-note">Deep cleanse &middot; steam &middot; massage &middot; serums</span></div><span class="svc-price">$100</span></div>
-        <div class="service-row"><div><span class="svc-name">Microdermabrasion</span><span class="svc-note">Texture &middot; tone &middot; radiance</span></div><span class="svc-price">$120</span></div>
+        <div class="service-row"><div><span class="svc-name">Signature Facial</span><span class="svc-note">Double cleanse &middot; exfoliation &middot; extractions &middot; mask &middot; neck &amp; arm massage</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$100</span></div>
+        <div class="service-row"><div><span class="svc-name">Acne Facial</span><span class="svc-note">Cleanse &middot; exfoliation &middot; extractions &middot; calming finish</span><span class="svc-by">Both</span></div><span class="svc-price">$100</span></div>
+        <div class="service-row"><div><span class="svc-name">Teen Facial</span><span class="svc-note">Gentle cleanse &middot; safe exfoliation &middot; pore care</span><span class="svc-by">Both</span></div><span class="svc-price">$90</span></div>
       </div>
       <div>
-        <div class="service-row"><div><span class="svc-name">Chemical Peel</span><span class="svc-note">Pigmentation &middot; acne &middot; renewal</span></div><span class="svc-price">$135</span></div>
-        <div class="service-row"><div><span class="svc-name">Microneedling</span><span class="svc-note">Collagen &middot; scars &middot; firmness</span></div><span class="svc-price">$185</span></div>
+        <div class="service-row"><div><span class="svc-name">Microdermabrasion</span><span class="svc-note">Anti-aging resurfacing &middot; tone &middot; fine lines</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$110</span></div>
+        <div class="service-row"><div><span class="svc-name">Chemical Peel</span><span class="svc-note">Exfoliation &middot; pigmentation &middot; renewal</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$130</span></div>
+        <div class="service-row"><div><span class="svc-name">Microneedling</span><span class="svc-note">Collagen &middot; texture &middot; scars</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$170</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="tab-brows" class="services-panel reveal">
+    <div class="services-grid">
+      <div>
+        <div class="service-row"><div><span class="svc-name">Signature Brow Wax</span><span class="svc-note">Mapping &middot; wax &middot; tint</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$25</span></div>
+        <div class="service-row"><div><span class="svc-name">Brow Wax + Tint</span><span class="svc-note">Mapping &middot; wax &middot; shape</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$30</span></div>
+        <div class="service-row"><div><span class="svc-name">Men's Signature Brows</span><span class="svc-by">Both</span></div><span class="svc-price">$25</span></div>
+      </div>
+      <div>
+        <div class="service-row"><div><span class="svc-name">Brow Tint</span><span class="svc-by">Both</span></div><span class="svc-price">$10</span></div>
+        <div class="service-row"><div><span class="svc-name">Brow Lamination</span><span class="svc-note">Shaping &middot; wax &middot; optional tint</span><span class="svc-by">Both</span></div><span class="svc-price">$80</span></div>
+        <div class="service-row"><div><span class="svc-name">Brow Lamination + Tint</span><span class="svc-by">Both</span></div><span class="svc-price">$90</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="tab-lashlift" class="services-panel reveal">
+    <div class="services-grid">
+      <div>
+        <div class="service-row"><div><span class="svc-name">Regular Lash Lift</span><span class="svc-by">Both</span></div><span class="svc-price">$70</span></div>
+        <div class="service-row"><div><span class="svc-name">Korean Lash Lift</span><span class="svc-note">Upward curl &middot; includes tint</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$80</span></div>
+      </div>
+      <div>
+        <div class="service-row"><div><span class="svc-name">Korean Lash Lift + Tint</span><span class="svc-by">Both</span></div><span class="svc-price">$90</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="tab-lashext" class="services-panel reveal">
+    <div class="services-grid">
+      <div>
+        <div class="service-row"><div><span class="svc-name">Classic Set</span><span class="svc-note">Natural look</span><span class="svc-by">Steffany</span></div><span class="svc-price">$90</span></div>
+        <div class="service-row"><div><span class="svc-name">Hybrid Set</span><span class="svc-note">Noticeable, not dramatic</span><span class="svc-by">Steffany</span></div><span class="svc-price">$105</span></div>
+        <div class="service-row"><div><span class="svc-name">Volume Set</span><span class="svc-note">Glam / sparse lashes</span><span class="svc-by">Steffany</span></div><span class="svc-price">$125</span></div>
+        <div class="service-row"><div><span class="svc-name">Wispy Set</span><span class="svc-by">Steffany</span></div><span class="svc-price">$115</span></div>
+        <div class="service-row"><div><span class="svc-name">Wet Set</span><span class="svc-by">Both</span></div><span class="svc-price">$110</span></div>
+      </div>
+      <div>
+        <div class="service-row"><div><span class="svc-name">Anime Set</span><span class="svc-by">Both</span></div><span class="svc-price">$115</span></div>
+        <div class="service-row"><div><span class="svc-name">Hawaiian Set</span><span class="svc-by">Both</span></div><span class="svc-price">$100</span></div>
+        <div class="service-row"><div><span class="svc-name">Mega Volume Set</span><span class="svc-by">Both</span></div><span class="svc-price">$145</span></div>
+        <div class="service-row"><div><span class="svc-name">Hybrid-Realistic</span><span class="svc-note">Lift + extensions</span><span class="svc-by">Both</span></div><span class="svc-price">$110</span></div>
+        <div class="service-row"><div><span class="svc-name">Lash Removal</span><span class="svc-by">Both</span></div><span class="svc-price">$20</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="tab-refills" class="services-panel reveal">
+    <div class="services-grid">
+      <div>
+        <div class="service-row"><div><span class="svc-name">Classic Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$65</span></div>
+        <div class="service-row"><div><span class="svc-name">Hybrid Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$75</span></div>
+        <div class="service-row"><div><span class="svc-name">Wet Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$75</span></div>
+        <div class="service-row"><div><span class="svc-name">Hawaiian Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$75</span></div>
+      </div>
+      <div>
+        <div class="service-row"><div><span class="svc-name">Wispy Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$85</span></div>
+        <div class="service-row"><div><span class="svc-name">Anime Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$85</span></div>
+        <div class="service-row"><div><span class="svc-name">Volume Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$95</span></div>
+        <div class="service-row"><div><span class="svc-name">Mega Volume Refill</span><span class="svc-by">Both</span></div><span class="svc-price">$115</span></div>
       </div>
     </div>
   </div>
   <div id="tab-lymph" class="services-panel reveal">
     <div class="services-grid">
       <div>
-        <div class="service-row"><div><span class="svc-name">Body Drainage</span><span class="svc-note">1 hr &middot; body and wrapping</span></div><span class="svc-price">$200</span></div>
-        <div class="service-row"><div><span class="svc-name">Full Body and Face</span><span class="svc-note">1 hr 20 min &middot; body, dry brush, wrap, scrub</span></div><span class="svc-price">$285</span></div>
+        <div class="service-row"><div><span class="svc-name">Lymphatic Massage (Regular)</span><span class="svc-note">1 hr &middot; massage + dry brushing</span><span class="svc-by">Both</span></div><span class="svc-price">$120</span></div>
+        <div class="service-row"><div><span class="svc-name">Whole Body Drainage</span><span class="svc-note">2 hr &middot; dry brush, sauna blanket, massage, scrub, wrap</span><span class="svc-by">Both</span></div><span class="svc-price">$230</span></div>
       </div>
       <div>
-        <div class="service-row"><div><span class="svc-name">Gold Package</span><span class="svc-note">2 hrs &middot; massage, face, wrap, red light, scrub</span></div><span class="svc-price">$350</span></div>
-      </div>
-    </div>
-  </div>
-  <div id="tab-lash" class="services-panel reveal">
-    <div class="services-grid">
-      <div>
-        <div class="service-row"><div><span class="svc-name">Lash Extensions</span><span class="svc-note">Steffany Parrales &middot; Price on consultation</span></div><span class="svc-price">TBD</span></div>
-        <div class="service-row"><div><span class="svc-name">Lash Lift</span><span class="svc-note">Lasts 6&ndash;8 weeks</span></div><span class="svc-price">$60</span></div>
-        <div class="service-row"><span class="svc-name">Lash Lift and Tint</span><span class="svc-price">$65</span></div>
-        <div class="service-row"><div><span class="svc-name">Brow Lamination</span><span class="svc-note">Includes mapping and wax</span></div><span class="svc-price">$60</span></div>
-        <div class="service-row"><span class="svc-name">Brow Lamination and Tint</span><span class="svc-price">$65</span></div>
+        <div class="service-row"><div><span class="svc-name">Monthly Package</span><span class="svc-by">Both</span></div><span class="svc-price">$600</span></div>
       </div>
     </div>
   </div>
   <div id="tab-wax" class="services-panel reveal">
     <div class="services-grid">
       <div>
-        <div class="service-row"><span class="svc-name">Brazilian</span><span class="svc-price">$80</span></div>
-        <div class="service-row"><span class="svc-name">Bikini</span><span class="svc-price">$45</span></div>
-        <div class="service-row"><span class="svc-name">Full Leg</span><span class="svc-price">$40</span></div>
-        <div class="service-row"><span class="svc-name">Full Arm</span><span class="svc-price">$30</span></div>
+        <div class="service-row"><div><span class="svc-name">Underarm</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$18</span></div>
+        <div class="service-row"><div><span class="svc-name">Full Arm</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$25</span></div>
+        <div class="service-row"><div><span class="svc-name">Full Leg</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$35</span></div>
       </div>
       <div>
-        <div class="service-row"><span class="svc-name">Underarm</span><span class="svc-price">$20</span></div>
-        <div class="service-row"><span class="svc-name">Eyebrow Wax</span><span class="svc-price">$15</span></div>
-        <div class="service-row"><span class="svc-name">Eyebrow Wax and Tint</span><span class="svc-price">$20</span></div>
+        <div class="service-row"><div><span class="svc-name">Bikini</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$40</span></div>
+        <div class="service-row"><div><span class="svc-name">Brazilian</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$50</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="tab-pmu" class="services-panel reveal">
+    <div class="services-grid">
+      <div>
+        <div class="service-row"><div><span class="svc-name">Lip Blushing</span><span class="svc-note">Semi-permanent lip tint &middot; 2&ndash;3 yrs</span><span class="svc-by">Both</span></div><span class="svc-price">$300</span></div>
+        <div class="service-row"><div><span class="svc-name">Microblading</span><span class="svc-note">Hair-stroke brows</span><span class="svc-by">Both</span></div><span class="svc-price">$300</span></div>
+        <div class="service-row"><div><span class="svc-name">Powder Brows</span><span class="svc-note">Soft shaded brows</span><span class="svc-by">Both</span></div><span class="svc-price">$300</span></div>
+        <div class="service-row"><div><span class="svc-name">PMU Touch Up</span><span class="svc-by">Both</span></div><span class="svc-price">$150</span></div>
+      </div>
+      <div>
+        <div class="service-row"><div><span class="svc-name">The Divine Duo</span><span class="svc-note">Lash Lift + Brow Lamination</span><span class="svc-by">Both</span></div><span class="svc-price">$135</span></div>
+        <div class="service-row"><div><span class="svc-name">Eyes on You</span><span class="svc-note">Lash Extensions + Signature Brow Wax</span><span class="svc-by">Both</span></div><span class="svc-price">$135</span></div>
+        <div class="service-row"><div><span class="svc-name">Fall Glow Package</span><span class="svc-note">Signature Facial + Korean Lash Lift + Brow Wax/Tint</span><span class="svc-by">Alexandra</span></div><span class="svc-price">$180</span></div>
+        <div class="service-row"><div><span class="svc-name">Hello Fall</span><span class="svc-note">Any full set + Brow Lamination</span><span class="svc-by">Both</span></div><span class="svc-price">$160</span></div>
       </div>
     </div>
   </div>
@@ -393,23 +473,28 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
     <div class="booking-info reveal-left">
       <span class="eyebrow">Reserve your session</span>
       <h2 class="section-title">Book an<br>Appointment</h2>
-      <p>Choose your service, pick a date and time, and submit. Alexandra will confirm within 24 hours.</p>
+      <p>Booking powered by Goldie &mdash; choose your provider for live availability.</p>
       <ul class="booking-details">
-        <li>Wednesday and Friday in Garfield, NJ. Address provided after confirmation.</li>
-        <li>Other days available by request.</li>
-        <li>No Sunday appointments</li>
+        <li>Monday &ndash; Thursday &middot; 9:30 AM &ndash; 7:00 PM</li>
+        <li>Friday &middot; 9:30 AM &ndash; 5:00 PM</li>
+        <li>Saturday &middot; 10:00 AM &ndash; 7:00 PM</li>
+        <li>Sunday &middot; Closed</li>
+        <li>14 Columbus Ave, Belleville, NJ 07109</li>
         <li>Bilingual. English and Spanish.</li>
         <li>Arrive 5 minutes early</li>
         <li>24-hour cancellation notice required</li>
       </ul>
     </div>
     <div class="booking-form-card reveal-right">
-      <h3 class="form-title">Request an Appointment</h3>
-      <div style="padding:2rem 0;text-align:center;">
-        <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:1.2rem;">Under Construction</span>
-        <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:1rem;">Online booking<br><em style="color:var(--bark);">coming soon.</em></p>
-        <p style="font-size:.82rem;color:var(--taupe);line-height:1.85;margin-bottom:2rem;max-width:320px;margin-left:auto;margin-right:auto;">While we finalize our booking system, please reach out directly on Instagram to schedule your appointment.</p>
-        <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" class="btn-dark">DM on Instagram</a>
+      <h3 class="form-title">Choose your provider</h3>
+      <div style="padding:.5rem 0 1rem;text-align:center;">
+        <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:1.2rem;">Live availability</span>
+        <p style="font-size:.82rem;color:var(--taupe);line-height:1.85;margin-bottom:2rem;max-width:340px;margin-left:auto;margin-right:auto;">Alexandra handles facials, brows, waxing and permanent makeup. Steffany handles lash extensions and body work. Pick yours to see open times and book instantly.</p>
+        <div class="btn-stack" style="justify-content:center;margin-top:0;">
+          <a href="https://book.heygoldie.com/DivineDaughtersStudio-251c1bf1fa75/checkout?preferredStaffId=11457440-89cb-4d1e-8518-671f392e6fbf" target="_blank" rel="noopener noreferrer" class="btn-dark">Book with Alexandra</a>
+          <a href="https://book.heygoldie.com/DivineDaughtersStudio-251c1bf1fa75/checkout?preferredStaffId=a9162bba-0ece-4cb1-b8e1-de8c64ad3ca0" target="_blank" rel="noopener noreferrer" class="btn-dark">Book with Steffany</a>
+        </div>
+        <p style="font-size:.7rem;color:var(--stone);font-style:italic;line-height:1.7;margin-top:1.8rem;">Booking powered by Goldie. Opens in a new tab.</p>
       </div>
     </div>
   </div>
@@ -421,7 +506,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
   <div class="about-content reveal-right">
     <span class="eyebrow">My story</span>
     <h2 class="section-title">Alexandra<br>Parrales</h2>
-    <p class="about-body">I immigrated from Per&uacute; to the United States when I was turning 12, and found my passion for beauty at 15. Today, at 22, I am a licensed esthetician with three years of experience and every session I do is a reflection of that passion.<br><br>My desire with AP Beauty Lab is to help women feel more confident in their bodies and skin. As a bilingual professional, I connect with a diverse range of clients and create a comfortable, personalized experience for everyone.<br><br>I am certified in Lymphatic Drainage massage and have been fully licensed since 2023.</p>
+    <p class="about-body">I immigrated from Per&uacute; to the United States when I was turning 12, and found my passion for beauty at 15. Today, at 22, I am a licensed esthetician with three years of experience and every session I do is a reflection of that passion.<br><br>My desire with Divine Daughters Studio is to help women feel more confident in their bodies and skin. As a bilingual professional, I connect with a diverse range of clients and create a comfortable, personalized experience for everyone.<br><br>I am certified in Lymphatic Drainage massage and have been fully licensed since 2023.<br><br>Divine Daughters Studio is run by the two of us &mdash; me, a licensed esthetician, and Steffany, a licensed massage therapist and our lash artist.</p>
     <div class="about-stats">
       <div><span class="stat-num">3+</span><span class="stat-label">Years experience</span></div>
       <div><span class="stat-num">2</span><span class="stat-label">Languages</span></div>
@@ -466,44 +551,47 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
       <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(249,246,241,.35);display:block;margin-bottom:.8rem;">Coming soon</span>
       <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:400;color:var(--paper);line-height:1.2;margin-bottom:1rem;">Newsletter launching<br><em style="color:var(--bark);">very soon.</em></p>
       <p style="font-size:.78rem;color:rgba(249,246,241,.4);line-height:1.8;max-width:320px;">We are putting the finishing touches on our mailing list. Check back soon to subscribe for exclusive offers and skincare tips.</p>
-      <p style="font-size:.68rem;color:rgba(249,246,241,.25);margin-top:1.2rem;letter-spacing:.06em;">In the meantime, follow us on Instagram &mdash; <span style="color:rgba(249,246,241,.5);">@alex.esthetics_</span></p>
+      <p style="font-size:.68rem;color:rgba(249,246,241,.25);margin-top:1.2rem;letter-spacing:.06em;">In the meantime, follow us &mdash; <a href="https://www.instagram.com/divinedaugthers.studio" target="_blank" rel="noopener noreferrer" style="color:rgba(249,246,241,.5);text-decoration:none;">@divinedaugthers.studio</a></p>
     </div>
   </div>
 </div>
 <section id="contact">
   <div class="reveal">
-    <span class="eyebrow">Find me</span>
+    <span class="eyebrow">Find us</span>
     <h2 class="section-title">Location &amp; Contact</h2>
   </div>
   <div class="contact-grid">
     <div class="reveal-left">
       <div class="location-block" style="margin-bottom:2.5rem;">
-        <h3>Garfield MedSpa</h3>
-        <span class="location-days">Mon &ndash; Sat &middot; Closed Sundays</span>
-        <p class="location-addr">Garfield, NJ</p>
-        <p class="location-note">Exact address shared privately after booking confirmation.</p>
+        <h3>Divine Daughters Studio</h3>
+        <span class="location-days" style="line-height:2.1;">Mon &ndash; Thu &middot; 9:30 AM &ndash; 7:00 PM<br>Fri &middot; 9:30 AM &ndash; 5:00 PM<br>Sat &middot; 10:00 AM &ndash; 7:00 PM<br>Sun &middot; Closed</span>
+        <p class="location-addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=14+Columbus+Ave%2C+Belleville%2C+NJ+07109" target="_blank" rel="noopener noreferrer">14 Columbus Ave<br>Belleville, NJ 07109</a></p>
+        <p class="location-note">Free street parking. Please arrive 5 minutes before your appointment.</p>
       </div>
     </div>
     <div class="contact-form reveal-right">
-      <h3>Send a message</h3>
-      <div style="padding:2rem 0;">
-        <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:1rem;">Under Construction</span>
-        <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:.8rem;">Contact form<br><em style="color:var(--bark);">coming soon.</em></p>
-        <p style="font-size:.8rem;color:var(--taupe);line-height:1.85;margin-bottom:1.5rem;">For questions, reach out directly on Instagram and we will get back to you as soon as possible.</p>
-        <a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer" class="btn-dark" style="display:inline-block;">DM on Instagram</a>
+      <h3>Get in touch</h3>
+      <div style="padding:.5rem 0 1rem;">
+        <span style="font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:1rem;">Two ways to reach us</span>
+        <p style="font-size:.8rem;color:var(--taupe);line-height:1.85;margin-bottom:.4rem;">Ready to book? Reserve your time on Goldie. Still deciding, or have a question about a treatment? Send us a DM and we will get back to you as soon as possible.</p>
+        <div class="btn-stack">
+          <a href="https://book.heygoldie.com/DivineDaughtersStudio-251c1bf1fa75" target="_blank" rel="noopener noreferrer" class="btn-dark">Book on Goldie</a>
+          <a href="https://www.instagram.com/divinedaugthers.studio" target="_blank" rel="noopener noreferrer" class="btn-dark">DM on Instagram</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <footer>
-  <span class="footer-logo">The AP Beauty Lab</span>
-  <span class="footer-copy">&copy; 2026 The AP Beauty Lab &middot; Garfield, NJ</span>
+  <span class="footer-logo">Divine Daughters Studio</span>
+  <span class="footer-copy">&copy; 2026 Divine Daughters Studio &middot; Belleville, NJ</span>
   <ul class="footer-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
-    <li><a href="https://www.instagram.com/alex.esthetics_?igsh=MXhiZmlodGx3MXAycw==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    <li><a href="https://www.instagram.com/divinedaugthers.studio" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@divinedaugthers.studio" target="_blank" rel="noopener noreferrer">TikTok</a></li>
   </ul>
 </footer>
 <div class="footer-legal">
@@ -516,9 +604,9 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 <div id="modal-privacy" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Privacy Policy</h2>
-  <span class="modal-date">Effective Date: March 25, 2026 &middot; AP Beauty Lab, Garfield, NJ</span>
+  <span class="modal-date">Effective Date: March 25, 2026 &middot; Divine Daughters Studio, Belleville, NJ</span>
   <div class="modal-divider"></div>
-  <p class="modal-p">AP Beauty Lab is committed to protecting your privacy.</p>
+  <p class="modal-p">Divine Daughters Studio is committed to protecting your privacy.</p>
   <p class="modal-h2">Information We Collect</p>
   <ul class="modal-ul"><li>Name, phone number, and email address via booking and contact forms</li><li>Service preferences and health information you voluntarily share</li></ul>
   <p class="modal-h2">How We Use Your Information</p>
@@ -531,11 +619,11 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 <div id="modal-terms" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('terms')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Terms of Service</h2>
-  <span class="modal-date">Effective Date: March 25, 2026 &middot; AP Beauty Lab, Garfield, NJ</span>
+  <span class="modal-date">Effective Date: March 25, 2026 &middot; Divine Daughters Studio, Belleville, NJ</span>
   <div class="modal-divider"></div>
   <p class="modal-p">By using this website you agree to these terms.</p>
   <p class="modal-h2">Booking and Appointments</p>
-  <ul class="modal-ul"><li>Appointments are confirmed directly by Alexandra via Instagram DM</li><li>You must be 18 or older to book independently</li><li>Please arrive 5 minutes before your scheduled time</li></ul>
+  <ul class="modal-ul"><li>Appointments are booked online through Goldie and confirmed by your provider</li><li>You must be 18 or older to book independently</li><li>Please arrive 5 minutes before your scheduled time</li></ul>
   <p class="modal-h2">Cancellation and Refunds</p>
   <ul class="modal-ul"><li>Cancellations require at least 24 hours notice</li><li>Less than 24 hours notice may incur a 50% fee</li><li>Completed services are non-refundable</li></ul>
   <p class="modal-h2">Governing Law</p><p class="modal-p">These Terms are governed by the laws of the State of New Jersey.</p>
@@ -543,9 +631,9 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 <div id="modal-disclaimer" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('disclaimer')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Health &amp; Wellness Disclaimer</h2>
-  <span class="modal-date">Effective Date: March 25, 2026 &middot; AP Beauty Lab, Garfield, NJ</span>
+  <span class="modal-date">Effective Date: March 25, 2026 &middot; Divine Daughters Studio, Belleville, NJ</span>
   <div class="modal-divider"></div>
-  <div class="modal-alert"><p>The services and content provided by AP Beauty Lab are for general wellness and cosmetic purposes only. Nothing on this website constitutes medical advice, diagnosis, or treatment.</p></div>
+  <div class="modal-alert"><p>The services and content provided by Divine Daughters Studio are for general wellness and cosmetic purposes only. Nothing on this website constitutes medical advice, diagnosis, or treatment.</p></div>
   <p class="modal-h2">Not Medical Treatment</p>
   <ul class="modal-ul"><li>All services are cosmetic and wellness services, not medical procedures</li><li>Results vary by individual and are not guaranteed</li></ul>
   <p class="modal-h2">Consult Your Doctor First If You Have</p>
@@ -555,7 +643,7 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 <div id="modal-cookies" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('cookies')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Cookie &amp; Data Policy</h2>
-  <span class="modal-date">Effective Date: March 25, 2026 &middot; AP Beauty Lab, Garfield, NJ</span>
+  <span class="modal-date">Effective Date: March 25, 2026 &middot; Divine Daughters Studio, Belleville, NJ</span>
   <div class="modal-divider"></div>
   <p class="modal-h2">What We Do NOT Use</p>
   <ul class="modal-ul"><li>Google Analytics or behavioral tracking cookies</li><li>Facebook Pixel or social media tracking</li><li>Advertising or retargeting cookies</li></ul>
@@ -565,10 +653,10 @@ footer{background:var(--ink);padding:3rem 6rem;display:grid;grid-template-column
 <div id="modal-cancellation" class="modal-overlay" role="dialog" aria-modal="true"><div class="modal-box">
   <button class="modal-close" onclick="closeModal('cancellation')">&times;</button>
   <span class="modal-eyebrow">Legal</span><h2 class="modal-title">Cancellation, Refund &amp; Deposit Policy</h2>
-  <span class="modal-date">Effective Date: March 25, 2026 &middot; AP Beauty Lab, Garfield, NJ</span>
+  <span class="modal-date">Effective Date: March 25, 2026 &middot; Divine Daughters Studio, Belleville, NJ</span>
   <div class="modal-divider"></div>
   <p class="modal-h2">Cancellation Policy</p>
-  <table class="modal-table"><tr><th>Notice Given</th><th>Policy</th></tr><tr><td>More than 24 hours</td><td>Full cancellation, no charge</td></tr><tr><td>Less than 24 hours</td><td>50% cancellation fee</td></tr><tr><td>No-show</td><td>100% of service price charged to future bookings</td></tr><tr><td>Emergency</td><td>Handled case by case at Alexandra's discretion</td></tr></table>
+  <table class="modal-table"><tr><th>Notice Given</th><th>Policy</th></tr><tr><td>More than 24 hours</td><td>Full cancellation, no charge</td></tr><tr><td>Less than 24 hours</td><td>50% cancellation fee</td></tr><tr><td>No-show</td><td>100% of service price charged to future bookings</td></tr><tr><td>Emergency</td><td>Handled case by case at the studio's discretion</td></tr></table>
   <p class="modal-h2">Refunds</p>
   <ul class="modal-ul"><li>Completed services are non-refundable</li><li>Adverse reactions must be reported within 48 hours</li></ul>
 </div></div>
