@@ -9,6 +9,7 @@
   --color-taupe: #9b8f82;
   --color-bark: #6b5d52;
   --color-ink: #1a1410;
+  --color-clay: #8c3a2b;
 
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Tenor Sans", "Didact Gothic", sans-serif;
@@ -140,5 +141,38 @@ html.motion .reveal-right.visible,
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* ---- Button: rotating gradient edge ----
+   The angle is animated via @property so only the gradient sweeps; the label
+   and any icons stay perfectly still. Browsers without @property support fall
+   back to a static gradient edge, which still reads as intended. */
+@property --btn-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes btn-spin {
+  to {
+    --btn-angle: 360deg;
+  }
+}
+
+.btn-rotor {
+  background: conic-gradient(
+    from var(--btn-angle),
+    transparent 0deg,
+    var(--btn-rotor-hi, var(--color-stone)) 55deg,
+    transparent 130deg,
+    transparent 360deg
+  );
+  animation: btn-spin 4.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-rotor {
+    animation: none;
   }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { INSTAGRAM_URL, TIKTOK_URL, NAV_LINKS } from "@/data/site"
 import { InstagramIcon, TikTokIcon } from "@/components/ui/icons"
+import { Button } from "@/components/ui/Button"
 
 export function Nav() {
   const [hidden, setHidden] = useState(false)
@@ -43,12 +44,9 @@ export function Nav() {
             Divine Daughters Studio
           </a>
           <div className="ml-auto flex items-center gap-6">
-            <a
-              href="#booking"
-              className="nav-book hidden whitespace-nowrap bg-ink px-6 py-3 text-[0.6rem] uppercase tracking-[0.24em] text-paper no-underline transition-colors hover:bg-bark lg:inline-block"
-            >
+            <Button href="#booking" variant="primary" size="md" className="hidden lg:inline-flex">
               Book a Session
-            </a>
+            </Button>
           </div>
         </div>
 
@@ -117,13 +115,15 @@ export function Nav() {
             {l.label}
           </a>
         ))}
-        <a
+        <Button
           href="#booking"
+          variant="outline"
+          size="lg"
+          className="mt-4"
           onClick={() => setMenuOpen(false)}
-          className="mt-4 border border-ink px-10 py-4 text-[0.62rem] uppercase tracking-[0.26em] text-ink no-underline transition-colors hover:bg-ink hover:text-paper"
         >
           Book a Session
-        </a>
+        </Button>
       </div>
     </>
   )
