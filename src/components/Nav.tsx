@@ -36,11 +36,6 @@ export function Nav() {
             href="#home"
             className="nav-logo absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5 whitespace-nowrap font-display text-[0.8rem] font-extrabold uppercase tracking-[-0.03em] text-foreground no-underline sm:text-[0.95rem] lg:text-[1.25rem]"
           >
-            <img
-              src="/images/logo.png"
-              alt=""
-              className="hidden h-[22px] w-auto shrink-0 sm:block lg:h-[30px]"
-            />
             Divine Daughters Studio
           </a>
           <div className="ml-auto flex items-center gap-6">

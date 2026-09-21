@@ -1,48 +1,16 @@
-import { useEffect, useRef, useState } from "react"
 import { ABOUT_STATS } from "@/data/site"
+import { AboutTools } from "@/components/AboutTools"
 
-/**
- * The still stands in until the intro clip can actually play, then the video
- * takes over -- same swap the pre-migration build did, so a slow or blocked
- * video never leaves an empty panel.
- */
 export function About() {
-  const [videoReady, setVideoReady] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
-    const onCanPlay = () => {
-      setVideoReady(true)
-      void v.play().catch(() => setVideoReady(false))
-    }
-    v.addEventListener("canplay", onCanPlay)
-    v.load()
-    return () => v.removeEventListener("canplay", onCanPlay)
-  }, [])
-
   return (
     <div id="about" className="grid min-h-[80vh] grid-cols-1 lg:grid-cols-2">
-      <div className="reveal-left relative min-h-[420px] overflow-hidden bg-secondary lg:min-h-[600px]">
+      <div className="reveal-left relative min-h-[460px] overflow-hidden bg-secondary lg:min-h-[600px]">
         <img
           src="/images/about.jpg"
           alt="Alexandra Parrales"
           className="h-full w-full object-cover object-top"
-          style={{ display: videoReady ? "none" : "block" }}
         />
-        <video
-          ref={videoRef}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover object-top"
-          style={{ display: videoReady ? "block" : "none" }}
-        >
-          <source src="/images/intro.mp4" type="video/mp4" />
-        </video>
+        <AboutTools />
       </div>
 
       <div className="reveal-right flex flex-col justify-center bg-muted px-6 py-20 lg:px-24 lg:py-32">
