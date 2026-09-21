@@ -2,7 +2,9 @@ import { FOOTER_LINKS } from "@/data/site"
 
 export function Footer() {
   return (
-    <footer className="grid grid-cols-1 items-center gap-6 bg-foreground px-6 py-12 text-center lg:grid-cols-[1fr_auto_1fr] lg:px-24 lg:text-left">
+    <footer
+      data-cursor-invert
+      className="grid grid-cols-1 items-center gap-6 bg-foreground px-6 py-12 text-center lg:grid-cols-[1fr_auto_1fr] lg:px-24 lg:text-left">
       <span className="font-display text-[1.1rem] font-extrabold uppercase tracking-[-0.03em] text-primary-foreground">
         Divine Daughters Studio
       </span>

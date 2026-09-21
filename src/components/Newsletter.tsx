@@ -4,6 +4,7 @@ export function Newsletter() {
   return (
     <div
       id="newsletter"
+      data-cursor-invert
       className="reveal grid grid-cols-1 items-center gap-12 bg-foreground px-6 py-20 lg:grid-cols-2 lg:gap-24 lg:px-24 lg:py-24"
     >
       <div>

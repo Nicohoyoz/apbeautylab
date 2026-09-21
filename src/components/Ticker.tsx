@@ -12,6 +12,7 @@ export function Ticker() {
   return (
     <div
       aria-hidden="true"
+      data-cursor-invert
       className="ticker-wrap overflow-hidden whitespace-nowrap bg-foreground py-[0.85rem]"
     >
       <div className="ticker-track inline-flex">
