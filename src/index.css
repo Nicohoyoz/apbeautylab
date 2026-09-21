@@ -203,3 +203,75 @@ html.motion .reveal-right.visible,
     animation: none;
   }
 }
+
+/* ---- Hero ----
+   The gated bits live here because they key off html.motion: if the motion
+   gate never lifts, nothing is left invisible. */
+.hero-eyebrow {
+  font-size: 0.58rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--color-stone);
+  display: inline-block;
+}
+
+/* Each line clips its words so they can slide up from underneath. */
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+  padding: 0.14em 0 0.2em;
+  margin: -0.14em 0 -0.2em;
+}
+.hero-title .word {
+  display: inline-block;
+  will-change: transform;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--color-bark);
+}
+
+/* The mark as a physical medallion: fixed light, shading that moves against
+   the tilt so it reads as a solid object catching the light. */
+.seal-glow {
+  background: radial-gradient(
+    circle at 48% 40%,
+    rgba(255, 253, 250, 0.9),
+    rgba(232, 224, 213, 0) 66%
+  );
+}
+.seal-img {
+  box-shadow:
+    0 34px 60px -24px rgba(26, 20, 16, 0.42),
+    0 10px 24px -12px rgba(26, 20, 16, 0.24),
+    0 0 0 1px rgba(155, 143, 130, 0.16);
+}
+.seal-shade {
+  background: radial-gradient(
+    circle at 70% 76%,
+    rgba(107, 93, 82, 0.26),
+    rgba(107, 93, 82, 0) 62%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim,
+  .hero-title .word,
+  .seal-tilt {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-title .line {
+    overflow: visible;
+  }
+}

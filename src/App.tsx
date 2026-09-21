@@ -1,5 +1,6 @@
 import { Cursor } from "@/components/Cursor"
 import { Nav } from "@/components/Nav"
+import { Hero } from "@/components/Hero"
 import { Services } from "@/components/Services"
 import { Gallery } from "@/components/Gallery"
 import { Ticker } from "@/components/Ticker"
@@ -11,8 +12,8 @@ import {
 } from "@/hooks/useMotion"
 
 /**
- * App shell. Services and gallery are migrated; the remaining sections
- * (#home, #booking, #about, #contact, #newsletter) still live in
+ * App shell. Hero, services and gallery are migrated; the remaining sections
+ * (#booking, #about, #contact, #newsletter, footer) still live in
  * src/legacy-reference.html and are yet to be ported. Nav links to those
  * anchors are inert until they exist.
  */
@@ -26,9 +27,8 @@ export default function App() {
     <>
       <Cursor />
       <Nav />
-      {/* Nav is fixed (~90px mobile / ~140px desktop); this stands in for the
-          hero's own top spacing until #home is migrated. */}
-      <main className="lg:pt-10">
+      <main>
+        <Hero />
         <Ticker />
         <Services />
         <Gallery />
